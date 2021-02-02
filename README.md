@@ -44,4 +44,4 @@
 
 ## Database Schema
 
-<img src="./readme_images/database_schema.png"/>
+<img src="./readme_images/db_schema.png"/>
