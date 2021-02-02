@@ -45,3 +45,55 @@
 ## Database Schema
 
 <img src="./readme_images/db_schema.png"/>
+
+## API Routes
+
+### Backend Routes
+
+#### Auth API
+
+| Endpoint               | HTTP Verb |                                Description |
+| :--------------------- | :-------: | -----------------------------------------: |
+| /api/auth              |    GET    |                          Authenticate User |
+| /api/auth/login        |   POST    |                             Logs a user In |
+| /api/auth/logout       |    GET    |                            Logs a user out |
+| /api/auth/signup       |   POST    |        Creates a new user and logs them in |
+| /api/auth/unauthorized |    GET    | Returns unauthorized JSON when failed auth |
+
+#### Players API
+
+| Endpoint                    | HTTP Verb |                           Description |
+| :-------------------------- | :-------: | ------------------------------------: |
+| /api/players/:id            | GET       |                    Gets single player |
+| /api/players/:id/hits       | GET       |       Gets all hits for single player |
+
+#### Courts API
+
+| Endpoint                    | HTTP Verb |                           Description |
+| :-------------------------- | :-------: | ------------------------------------: |
+| /api/courts                 | GET       |                       Gets all courts |
+| /api/courts/:id             | GET       |                     Gets single court |
+| /api/courts/:id             | POST      |                   Create single court |
+| /api/courts/:id/players     | GET       |         Get players at specific court |
+| /api/courts/:id/players     | POST      |          Add player to specific court |
+| /api/courts/:id/hits        | GET       |            Get hits at specific court |
+| /api/courts/:id/hits        | POST      |          Create hit at specific court |
+
+
+#### Hits API
+
+| Endpoint              | HTTP Verb |        Description |
+| :-------------------- | :-------: | -----------------: |
+| /api/hits/:id         | GET       |            Get hit |
+| /api/hits/:id         | POST      |         Create hit |
+| /api/hits/:id         | DELETE    |         Delete hit |
+
+#### Reviews API
+
+| Endpoint              | HTTP Verb |        Description |
+| :-------------------- | :-------: | -----------------: |
+| /api/reviews/:id      | GET       |         Get review |
+| /api/reviews/:id      | POST      |      Create review |
+| /api/reviews/:id      | PATCH     |        Edit review |
+| /api/reviews/:id      | DELETE    |      Delete review |
+
