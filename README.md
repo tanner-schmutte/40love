@@ -33,7 +33,7 @@
 
 -   Authentication
 -   Public Tennis Courts via Map
--   Player List @ Courts
+-   Player List @ Courts by NTRP Rating
 -   Player Profile Page
 -   Hit Request / Acceptance
 -   Reviews
