@@ -7,7 +7,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './services/auth';
-import MapContainer from './components/Map';
+import GoogleApiWrapper from './components/Map';
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
@@ -31,7 +31,7 @@ function App() {
         <BrowserRouter>
             <NavBar setAuthenticated={setAuthenticated} />
 
-            <MapContainer />
+            <GoogleApiWrapper />
 
 
             {/* <Switch>
