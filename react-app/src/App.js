@@ -7,7 +7,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './services/auth';
-import Home from './components/Home';
+import MapContainer from './components/Map';
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
@@ -31,9 +31,10 @@ function App() {
         <BrowserRouter>
             <NavBar setAuthenticated={setAuthenticated} />
 
-            <Home />
+            <MapContainer />
 
-            <Switch>
+
+            {/* <Switch>
                 <Route path="/login" exact={true}>
                     <LoginForm
                         authenticated={authenticated}
@@ -67,7 +68,7 @@ function App() {
                 >
                     <h1>My Home Page</h1>
                 </ProtectedRoute>
-            </Switch>
+            </Switch> */}
         </BrowserRouter>
     );
 }
