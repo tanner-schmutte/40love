@@ -83,6 +83,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
                             value={username}
                             required={true}
                         />
+                        <br />
                         <TextField
                             label="Email"
                             type="text"
@@ -91,6 +92,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
                             value={email}
                             required={true}
                         />
+                        <br />
 
                         {/* <label>Email</label>
                         <input
@@ -108,6 +110,8 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
                             value={password}
                             required={true}
                         />
+                        <br />
+
                         {/* <label>Password</label>
                         <input
                             type="password"

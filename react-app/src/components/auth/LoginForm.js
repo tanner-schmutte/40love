@@ -68,6 +68,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                             value={email}
                             onChange={updateEmail}
                         />
+                        <br />
                         {/* <label htmlFor="email">Email</label>
                         <input
                             name="email"
