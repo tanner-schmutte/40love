@@ -1,107 +1,78 @@
 import React from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import GoogleMapReact from 'google-map-react';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+// import { useSearchLocation } from "../../SearchContext";
 
-const containerStyle = {
-    position: 'relative',
-    width: '75%',
-    height: '75%',
-};
+const ContainerContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
-export class MapContainer extends React.Component {
-    state = {
-        events: [
-            {
-                latitude: 37.761,
-                longitude: -122.4272,
-            },
-            {
-                latitude: 37.7702,
-                longitude: 122.459,
-            },
-            {
-                latitude: 37.79265,
-                longitude: -122.42617,
-            },
-        ],
-        showingInfoWindow: true,
-        activeMarker: {},
-        selectedPlace: {},
-    };
+const MapContainer = styled.div`
+    width: 65%;
+    height: 90vh;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    top: 20px;
+    position: relative;
+`;
 
-    onMarkerClick = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true,
-        });
+const PinContainer = styled.div`
+    background-color: #c40626;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+`;
 
-    onMapClicked = (props) => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: true,
-            });
-        }
-    };
-
-    infoWindowHendler = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showInfoWindow: true,
-        });
-
-    onCloseWindow = (props) => {
-        this.setState({
-            showInfoWindow: false,
-            activeMarker: null,
-        });
-    };
-
-    displayMarkers = () => {
-        return this.state.events.map((oneEvent, index) => {
-            return (
-                <Marker
-                    key={index}
-                    id={index}
-                    position={{
-                        lat: oneEvent.latitude,
-                        lng: oneEvent.longitude,
+export default function Map({ courts }) {
+    const history = useHistory();
+    return (
+        <ContainerContainer>
+            <MapContainer>
+                <GoogleMapReact
+                    bootstrapURLKeys={{
+                        key: 'AIzaSyADUiyN1EtAgFI5DKE6WyiQqPpUuI9Tya4',
                     }}
-                />
-            );
-        });
-    };
-
-    render() {
-        return (
-            <Map
-                google={this.props.google}
-                zoom={12}
-                style={containerStyle}
-                // center={{ lat: 37.761, lng: -122.4272 }}
-            >
-                {this.displayMarkers()}
-
-                <Marker
-                    onClick={this.onMarkerClick}
-                    name={'Current location'}
-                />
-
-                <InfoWindow
-                    onClose={this.onCloseWindow}
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}
+                    center={{ lat: 37.7655, lng: -122.4381 }}
+                    defaultZoom={13}
                 >
-                    <div>
-                        <h1>{this.state.selectedPlace.name}</h1>
-                    </div>
-                </InfoWindow>
-            </Map>
-        );
-    }
+                    {courts &&
+                        courts.map((court) => (
+                            <PinContainer
+                                onClick={(e) =>
+                                    history.push(`/courts/${court.id}`)
+                                }
+                                key={court.id}
+                                lat={court.latitude}
+                                lng={court.longitude}
+                            ></PinContainer>
+                        ))}
+                </GoogleMapReact>
+            </MapContainer>
+        </ContainerContainer>
+    );
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'key',
-})(MapContainer);
+// export class MapContainer extends React.Component {
+//     state = {
+//         events: [
+//             {
+//                 latitude: 37.761,
+//                 longitude: -122.4272,
+//             },
+//             {
+//                 latitude: 37.7702,
+//                 longitude: 122.459,
+//             },
+//             {
+//                 latitude: 37.79265,
+//                 longitude: -122.42617,
+//             },
+//         ],
