@@ -10,7 +10,6 @@ import { authenticate } from './services/auth';
 
 import Home from './components/Home';
 
-
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
@@ -33,9 +32,18 @@ function App() {
         <BrowserRouter>
             {/* <NavBar setAuthenticated={setAuthenticated} /> */}
 
-            <Home />
+            {/* <Home
+                setAuthenticated={setAuthenticated}
+                authenticated={authenticated}
+            /> */}
 
-            {/* <Switch>
+            <Switch>
+                <Route path="/" exact={true} authenticated={authenticated}>
+                    <Home
+                        authenticated={authenticated}
+                        setAuthenticated={setAuthenticated}
+                    />
+                </Route>
                 <Route path="/login" exact={true}>
                     <LoginForm
                         authenticated={authenticated}
@@ -48,7 +56,8 @@ function App() {
                         setAuthenticated={setAuthenticated}
                     />
                 </Route>
-                <ProtectedRoute
+
+                {/* <ProtectedRoute
                     path="/users"
                     exact={true}
                     authenticated={authenticated}
@@ -68,8 +77,8 @@ function App() {
                     authenticated={authenticated}
                 >
                     <h1>My Home Page</h1>
-                </ProtectedRoute>
-            </Switch> */}
+                </ProtectedRoute> */}
+            </Switch>
         </BrowserRouter>
     );
 }
