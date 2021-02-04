@@ -20,7 +20,7 @@ const MapContainer = styled.div`
 `;
 
 const PinContainer = styled.div`
-    background-color: #c40626;
+    background-color: #21B786;
     width: 15px;
     height: 15px;
     border-radius: 100%;
