@@ -43,12 +43,9 @@
     cursor: pointer;
     margin-left: 50px;
     margin-right: 10px;
-    /* margin-top: 10px; */
     padding: 6px 6px 6px 6px;
-    /* background-color: #21B786; */
     border-radius: 10px;
-
-
+    font-weight: bold;
 }
 
 .banner {
