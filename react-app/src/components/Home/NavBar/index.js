@@ -11,7 +11,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 <div>
                     <img className="logo" src={logo} alt="" />
                 </div>
-                <div className="logo-title">40love</div>
+                <div className="logo-title">40Love</div>
             </div>
             <div className="auth-and-banner">
                 <div className="auth-links">

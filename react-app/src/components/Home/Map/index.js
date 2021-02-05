@@ -8,7 +8,9 @@ const ContainerContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff6dd;
+    // background-color: #fff6dd;
+    background-color: #bbe6c0;
+
 `;
 
 const MapContainer = styled.div`
@@ -171,8 +173,8 @@ export default function Map({ courts }) {
                         text="Jackson Playground"
                     />
                     <PinContainer
-                        lat={37.734917}
-                        lng={-122.47760135}
+                        lat={37.73607}
+                        lng={-122.47816}
                         text="Frances M McAteer"
                     />
                     <PinContainer
