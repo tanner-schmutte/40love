@@ -1,7 +1,7 @@
 .navbar {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    background-color: white;
+    background-color: #bbe6c0;
     padding: 10px;
     border-bottom: 10px solid black;
 }
@@ -42,7 +42,13 @@
     text-decoration: none;
     cursor: pointer;
     margin-left: 50px;
-    padding: 15px;
+    margin-right: 10px;
+    /* margin-top: 10px; */
+    padding: 6px 6px 6px 6px;
+    /* background-color: #21B786; */
+    border-radius: 10px;
+
+
 }
 
 .banner {
@@ -50,6 +56,9 @@
     font-weight: bold;
     font-size: 1.5rem;
     margin-left: 200px;
+    background-color: #21B786;
+    padding-left: 10px;;
+    border-radius: 10px;
 }
 
 @media (max-width: 820px) {
