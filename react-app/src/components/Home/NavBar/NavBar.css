@@ -54,6 +54,7 @@
     font-size: 1.5rem;
     margin-left: 200px;
     background-color: #21B786;
+    border: 3px solid black;
     padding-left: 10px;;
     border-radius: 10px;
 }
@@ -83,8 +84,15 @@
 }
 
 @media (max-width: 650px) {
+    .navbar {
+        padding: 5px;
+        border-bottom: 12px solid black;
+    }
     .auth-links {
         margin-top: 0px;
+    }
+    .auth-links a {
+        margin-right: 0px;
     }
     .banner {
         margin-left: 50px;
