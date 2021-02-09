@@ -5,7 +5,6 @@ from app.models import User
 
 
 def user_exists(form, field):
-    print("Checking if user exists", field.data)
     username = field.data
     user = User.query.filter(User.username == username).first()
     if not user:
@@ -13,7 +12,6 @@ def user_exists(form, field):
 
 
 def password_matches(form, field):
-    print("Checking if password matches")
     password = field.data
     username = form.data['username']
     user = User.query.filter(User.username == username).first()
