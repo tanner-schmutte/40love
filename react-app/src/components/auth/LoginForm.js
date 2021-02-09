@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
     const [errors, setErrors] = useState([]);
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [open, setOpen] = useState(true);
     const history = useHistory();
@@ -25,7 +25,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     const onLogin = async (e) => {
         e.preventDefault();
-        const user = await login(email, password);
+        const user = await login(username, password);
         if (!user.errors) {
             setAuthenticated(true);
         } else {
@@ -33,8 +33,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         }
     };
 
-    const updateEmail = (e) => {
-        setEmail(e.target.value);
+    const updateUsername = (e) => {
+        setUsername(e.target.value);
     };
 
     const updatePassword = (e) => {
@@ -62,21 +62,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                             ))}
                         </div>
                         <TextField
-                            label="Email"
+                            label="Username"
                             type="text"
-                            value={email}
-                            onChange={updateEmail}
+                            value={username}
+                            onChange={updateUsername}
                         />
                         <br />
-                        {/* <label htmlFor="email">Email</label>
-                        <input
-                            name="email"
-                            type="text"
-                            placeholder="Email"
-                            value={email}
-                            onChange={updateEmail}
-                        /> */}
-
                         <TextField
                             label="Password"
                             name="password"
@@ -85,16 +76,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                             value={password}
                             onChange={updatePassword}
                         />
-                        {/* <label htmlFor="password">Password</label>
-                        <input
-                            name="password"
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={updatePassword}
-                        /> */}
-
-                        {/* <button type="submit">Login</button> */}
                     </form>
                 </DialogContent>
                 <DialogActions>
