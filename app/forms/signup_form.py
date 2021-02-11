@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
-from app.models import User
+from app.models import Player
 
 
 def user_exists(form, field):
     username = field.data
-    user = User.query.filter(User.username == username).first()
+    user = Player.query.filter(Player.username == username).first()
     if user:
         raise ValidationError("User is already registered.")
 
