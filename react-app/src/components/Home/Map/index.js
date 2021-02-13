@@ -30,7 +30,7 @@ export default function Map({ courts }) {
             <MapContainer>
                 <GoogleMapReact
                     bootstrapURLKeys={{
-                        key: 'key',
+                        key: 'AIzaSyADUiyN1EtAgFI5DKE6WyiQqPpUuI9Tya4',
                     }}
                     center={{ lat: 37.7655, lng: -122.4381 }}
                     defaultZoom={13}
