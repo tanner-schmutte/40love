@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 
 const Home = (setAuthenticated={setAuthenticated}, authenticated={authenticated}) => (
     <>
-        <NavBar />
+        <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated}/>
         <Map />
     </>
 );

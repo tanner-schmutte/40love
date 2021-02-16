@@ -11,4 +11,5 @@ class Review(db.Model):
     reviewer = db.Column(db.Integer, db.ForeignKey("Players.id"))
     reviewee = db.Column(db.Integer, db.ForeignKey("Players.id"))
 
-    player = relationship("Player", backref="Reviews")
+    player1 = relationship("Player", foreign_keys=[reviewer])
+    player2 = relationship("Player", foreign_keys=[reviewee])

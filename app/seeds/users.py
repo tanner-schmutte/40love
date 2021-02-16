@@ -5,9 +5,23 @@ from app.models import db, Player
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
-    demo = Player(username='Roger Federer', password='password')
+    seed = [
+        Player(username='Roger Federer', password='password'),
+        Player(username='Rafa Nadal', password='password'),
+        Player(username='Novak Djokovic', password='password'),
+        Player(username='Serena Williams', password='password'),
+        Player(username='Dominic Decoco', password='password'),
+        Player(username='Ron Bergundy', password='password'),
+        Player(username='Madison Keys', password='password'),
+        Player(username='Gael Monfils', password='password'),
+        Player(username='Andre Agassi', password='password'),
+        Player(username='Steffi Graf', password='password'),
+        Player(username='Maria Sharapova', password='password'),
+        Player(username='Nick Kyrgios', password='password'),
+        Player(username='LeBron James', password='password'),
+    ]
 
-    db.session.add(demo)
+    db.session.add_all(seed)
     db.session.commit()
 
 

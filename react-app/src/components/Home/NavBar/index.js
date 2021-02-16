@@ -14,44 +14,38 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 <div className="logo-title">40Love</div>
             </div>
             <div className="auth-and-banner">
-                <div className="auth-links">
-                    {!authenticated && (
+                {!authenticated && (
+                    <div className="login-signup">
                         <div>
                             <NavLink
                                 to="/login"
                                 exact={true}
                                 activeClassName="active"
-                                ClassName="login"
+                                className="login"
                             >
                                 Login
                             </NavLink>
-                        </div>
-                    )}
-                    {!authenticated && (
-                        <div>
                             <NavLink
-                                to="/sign-up"
+                                setAuthenticated={setAuthenticated}
+                                to="/signup"
                                 exact={true}
                                 activeClassName="active"
-                                ClassName="sign-up"
+                                className="sign-up"
                             >
                                 Sign Up
                             </NavLink>
                         </div>
-                    )}
-                    {/* <div>
-                    <NavLink to="/users" exact={true} activeClassName="active">
-                        Users
-                    </NavLink>
-                </div> */}
-                    {authenticated && (
-                        <div>
-                            <LogoutButton setAuthenticated={setAuthenticated} />
-                        </div>
-                    )}
-                </div>
+                    </div>
+                )}
+                {authenticated && (
+                    <div className="authenticated">
+                        <div>Welcome back, 'name'</div>
+                        <LogoutButton setAuthenticated={setAuthenticated} />
+                    </div>
+                )}
+
                 <div className="banner">
-                    Servin' up hits. <br/> Find your courts below.
+                    Servin' up hits. <br /> Find your courts below.
                 </div>
             </div>
         </nav>

@@ -64,8 +64,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                         <TextField
                             label="Username"
                             type="text"
-                            value={username}
                             onChange={updateUsername}
+                            value={username}
                         />
                         <br />
                         <TextField
@@ -73,8 +73,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                             name="password"
                             type="password"
                             placeholder="Password"
-                            value={password}
                             onChange={updatePassword}
+                            value={password}
                         />
                     </form>
                 </DialogContent>

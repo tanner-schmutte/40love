@@ -1,6 +1,8 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from sqlalchemy.orm import backref, relationship
+from sqlalchemy import Table, Column, Integer, ForeignKey
 
 
 class Player(db.Model, UserMixin):
@@ -9,6 +11,8 @@ class Player(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    court = relationship("Court", backref="Players")
 
     @property
     def password(self):
