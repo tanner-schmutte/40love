@@ -10,8 +10,6 @@ import { authenticate } from './services/auth';
 
 import Home from './components/Home';
 
-// make a change
-
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
