@@ -1,10 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../../auth/LogoutButton';
 import './NavBar.css';
 import logo from '../../../media/black_logo.png';
+import { logout } from '../../../services/auth';
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
+const NavBar = ({ authenticated }, { setAuthenticated }) => {
+
+    const onLogout = async () => {
+        await logout();
+        setAuthenticated(false);
+    };
+
     return (
         <nav className="navbar">
             <div className="logo-container">
@@ -40,7 +46,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 {authenticated && (
                     <div className="authenticated">
                         <div>Welcome back, 'name'</div>
-                        <LogoutButton setAuthenticated={setAuthenticated} />
+                        <button onClick={onLogout}>Logout</button>
                     </div>
                 )}
 

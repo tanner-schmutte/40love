@@ -3,9 +3,12 @@ import React from 'react';
 import Map from './Map';
 import NavBar from './NavBar';
 
-const Home = (setAuthenticated={setAuthenticated}, authenticated={authenticated}) => (
+const Home = ({ authenticated }, { setAuthenticated }) => (
     <>
-        <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated}/>
+        <NavBar
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+        />
         <Map />
     </>
 );
