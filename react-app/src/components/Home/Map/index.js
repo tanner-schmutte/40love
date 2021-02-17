@@ -2,7 +2,6 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-// import { useSearchLocation } from "../../SearchContext";
 import Marker from '../Marker';
 
 const ContainerContainer = styled.div`
@@ -30,7 +29,7 @@ export default function Map({ courts }) {
             <MapContainer>
                 <GoogleMapReact
                     bootstrapURLKeys={{
-                        key: 'key',
+                        key: 'AIzaSyADUiyN1EtAgFI5DKE6WyiQqPpUuI9Tya4',
                     }}
                     center={{ lat: 37.7655, lng: -122.4381 }}
                     defaultZoom={13}
