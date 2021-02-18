@@ -4,7 +4,7 @@ import './NavBar.css';
 import logo from '../../../media/black_logo.png';
 import { logout } from '../../../services/auth';
 
-const NavBar = ({ authenticated }, { setAuthenticated }) => {
+const NavBar = ({ authenticated, setAuthenticated }) => {
 
     const onLogout = async () => {
         await logout();
