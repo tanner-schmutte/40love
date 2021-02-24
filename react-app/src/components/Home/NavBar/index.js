@@ -4,8 +4,7 @@ import './NavBar.css';
 import logo from '../../../media/black_logo.png';
 import { logout } from '../../../services/auth';
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
-
+const NavBar = ({ authenticated, setAuthenticated, user }) => {
     const onLogout = async () => {
         await logout();
         setAuthenticated(false);
@@ -45,7 +44,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 )}
                 {authenticated && (
                     <div className="authenticated">
-                        <div>Welcome back, 'name'</div>
+                        <div>Welcome back, {user.username}</div>
                         <button onClick={onLogout}>Logout</button>
                     </div>
                 )}

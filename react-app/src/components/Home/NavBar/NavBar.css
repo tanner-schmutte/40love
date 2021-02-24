@@ -99,6 +99,15 @@
         padding: 8px;
         font-size: 0.6rem;
     }
+    .authenticated {
+        margin-top: 0px;
+        margin-left: 50px;
+        font-size: .9rem;
+    }
+    .authenticated button {
+        margin-left: 15px;
+        font-size: 0.6rem;
+    }
     .banner {
         margin-left: 100px;
         font-size: 0.9rem;
@@ -115,6 +124,10 @@
     }
     .login-signup a {
         margin-right: 0px;
+    }
+    .authenticated {
+        font-size: .7rem;
+        margin-left: 10px;
     }
     .banner {
         margin-left: 50px;

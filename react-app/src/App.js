@@ -11,8 +11,7 @@ import { useUser } from './context/UserContext';
 import Home from './components/Home';
 
 function App() {
-
-    const { user, setUser, authenticated, setAuthenticated } = useUser();
+    const { user, authenticated, setAuthenticated } = useUser();
 
     return (
         <BrowserRouter>
@@ -28,6 +27,7 @@ function App() {
                     <Home
                         authenticated={authenticated}
                         setAuthenticated={setAuthenticated}
+                        user={user}
                     />
                 </Route>
                 <Route path="/login" exact={true}>
