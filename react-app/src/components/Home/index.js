@@ -2,6 +2,7 @@ import React from 'react';
 
 import Map from './Map';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 const Home = ({ authenticated, setAuthenticated, user }) => (
     <>
@@ -11,6 +12,8 @@ const Home = ({ authenticated, setAuthenticated, user }) => (
             user={user}
         />
         <Map />
+        <Footer />
+
     </>
 );
 

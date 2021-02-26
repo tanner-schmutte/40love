@@ -8,6 +8,9 @@ const NavBar = ({ authenticated, setAuthenticated, user }) => {
     const onLogout = async () => {
         await logout();
         setAuthenticated(false);
+
+
+        console.log(user)
     };
 
     return (

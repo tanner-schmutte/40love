@@ -1,0 +1,50 @@
+.footer-container {
+    display: flex;
+    justify-content: center;
+    background-color: #bbe6c0;
+    height: 100px;
+    width: 100%;
+    bottom: 0px;
+    margin-top: 0px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 40px;
+}
+
+.footer {
+    padding-top: 30px;
+}
+
+.footer a {
+    padding: 0 20px;
+    padding-top: 30px;
+
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+i {
+    text-decoration: none;
+}
+
+#linkedinlogo {
+    color: black;
+    text-decoration: none;
+}
+
+#githublogo {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    outline: none;
+    box-shadow: none !important;
+}
