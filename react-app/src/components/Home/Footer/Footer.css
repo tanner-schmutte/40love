@@ -5,7 +5,7 @@
     height: 100px;
     width: 100%;
     bottom: 0px;
-    margin-top: 0px;
+    border-bottom: 10px solid black;
 }
 
 .footer {
