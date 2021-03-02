@@ -64,6 +64,7 @@ def sign_up():
     if form.validate_on_submit():
         user = Player(
             username=form.data['username'],
+            ntrp=form.data['ntrp'],
             password=form.data['password']
         )
         db.session.add(user)
