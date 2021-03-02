@@ -13,3 +13,4 @@ class Review(db.Model):
 
     player1 = relationship("Player", foreign_keys=[reviewer])
     player2 = relationship("Player", foreign_keys=[reviewee])
+    

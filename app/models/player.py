@@ -10,8 +10,8 @@ class Player(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
+    ntrp = db.Column(db.Numeric(2, 1), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
-
     court = relationship("Court", backref="Players")
 
     @property
