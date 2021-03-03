@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import LoginForm from './components/auth/LoginForm';
@@ -6,12 +7,16 @@ import SignUpForm from './components/auth/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import { authenticate } from './services/auth';
+import { authenticate } from './store/session';
 import { useUser } from './context/UserContext';
 import Home from './components/Home';
 
 function App() {
-    const { user, authenticated, setAuthenticated } = useUser();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(authenticate());
+    }, [dispatch]);
 
     return (
         <BrowserRouter>
@@ -23,24 +28,14 @@ function App() {
             /> */}
 
             <Switch>
-                <Route path="/" exact={true} authenticated={authenticated}>
-                    <Home
-                        authenticated={authenticated}
-                        setAuthenticated={setAuthenticated}
-                        user={user}
-                    />
+                <Route path="/" exact={true}>
+                    <Home />
                 </Route>
                 <Route path="/login" exact={true}>
-                    <LoginForm
-                        authenticated={authenticated}
-                        setAuthenticated={setAuthenticated}
-                    />
+                    <LoginForm />
                 </Route>
                 <Route path="/signup" exact={true}>
-                    <SignUpForm
-                        authenticated={authenticated}
-                        setAuthenticated={setAuthenticated}
-                    />
+                    <SignUpForm />
                 </Route>
 
                 {/* <ProtectedRoute

@@ -6,19 +6,19 @@ from app.models import db, Player
 def seed_users():
 
     seed = [
-        Player(username='Roger Federer', password='password'),
-        Player(username='Rafa Nadal', password='password'),
-        Player(username='Novak Djokovic', password='password'),
-        Player(username='Serena Williams', password='password'),
-        Player(username='Dominic Decoco', password='password'),
-        Player(username='Ron Bergundy', password='password'),
-        Player(username='Madison Keys', password='password'),
-        Player(username='Gael Monfils', password='password'),
-        Player(username='Andre Agassi', password='password'),
-        Player(username='Steffi Graf', password='password'),
-        Player(username='Maria Sharapova', password='password'),
-        Player(username='Nick Kyrgios', password='password'),
-        Player(username='LeBron James', password='password'),
+        Player(username='Roger Federer', ntrp='7.0', password='password'),
+        Player(username='Rafa Nadal', ntrp='7.0', password='password'),
+        Player(username='Novak Djokovic', ntrp='7.0', password='password'),
+        Player(username='Serena Williams', ntrp='7.0', password='password'),
+        Player(username='Dominic Decoco', ntrp='7.0', password='password'),
+        Player(username='Ron Bergundy', ntrp='7.0', password='password'),
+        Player(username='Madison Keys', ntrp='7.0', password='password'),
+        Player(username='Gael Monfils', ntrp='7.0', password='password'),
+        Player(username='Andre Agassi', ntrp='7.0', password='password'),
+        Player(username='Steffi Graf', ntrp='7.0', password='password'),
+        Player(username='Maria Sharapova', ntrp='7.0', password='password'),
+        Player(username='Nick Kyrgios', ntrp='7.0', password='password'),
+        Player(username='LeBron James', ntrp='7.0', password='password'),
     ]
 
     db.session.add_all(seed)

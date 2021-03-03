@@ -28,5 +28,6 @@ class Player(db.Model, UserMixin):
     def to_dict(self):
         return {
             "id": self.id,
+            "ntrp": str(self.ntrp),
             "username": self.username,
         }

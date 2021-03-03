@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import { signUp } from '../../store/session';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Home from '../Home';
 
@@ -10,9 +11,15 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
 
-const SignUpForm = ({ authenticated, setAuthenticated }) => {
+const SignUpForm = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user);
+
+    const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState('');
+    const [ntrp, setNtrp] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [open, setOpen] = useState(true);
@@ -26,15 +33,18 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
     const onSignUp = async (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
-            const user = await signUp(username, password);
-            if (!user.errors) {
-                setAuthenticated(true);
-            }
+            dispatch(signUp(username, ntrp, password)).catch((err) => {
+                setErrors([...err.errors]);
+            });
         }
     };
 
     const updateUsername = (e) => {
         setUsername(e.target.value);
+    };
+
+    const updateNtrp = (e) => {
+        setNtrp(e.target.value);
     };
 
     const updatePassword = (e) => {
@@ -45,7 +55,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
         setRepeatPassword(e.target.value);
     };
 
-    if (authenticated) {
+    if (user) {
         return <Redirect to="/" />;
     }
 
@@ -60,6 +70,11 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
                 <DialogTitle id="form-dialog-title">Get started.</DialogTitle>
                 <DialogContent>
                     <form onSubmit={onSignUp}>
+                        <div>
+                            {errors.map((error) => (
+                                <div>{error}</div>
+                            ))}
+                        </div>
                         <TextField
                             label="Username"
                             type="text"
@@ -67,6 +82,28 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
                             onChange={updateUsername}
                             value={username}
                         />
+                        <br />
+                        <TextField
+                            id="select"
+                            label="ntrp"
+                            select
+                            onChange={updateNtrp}
+                            value={ntrp}
+                        >
+                            <MenuItem value="1.5">1.5</MenuItem>
+                            <MenuItem value="2.0">2.0</MenuItem>
+                            <MenuItem value="2.5">2.5</MenuItem>
+                            <MenuItem value="3.0">3.0</MenuItem>
+                            <MenuItem value="3.5">3.5</MenuItem>
+                            <MenuItem value="4.0">4.0</MenuItem>
+                            <MenuItem value="4.5">4.5</MenuItem>
+                            <MenuItem value="5.0">5.0</MenuItem>
+                            <MenuItem value="5.5">5.5</MenuItem>
+                            <MenuItem value="6.0">6.0</MenuItem>
+                            <MenuItem value="6.5">6.5</MenuItem>
+                            <MenuItem value="7.0">7.0</MenuItem>
+                            <MenuItem value="7.5">7.5</MenuItem>
+                        </TextField>
                         <br />
                         <TextField
                             label="Password"

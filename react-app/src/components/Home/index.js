@@ -4,16 +4,11 @@ import Map from './Map';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
-const Home = ({ authenticated, setAuthenticated, user }) => (
+const Home = () => (
     <>
-        <NavBar
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-            user={user}
-        />
+        <NavBar />
         <Map />
         <Footer />
-
     </>
 );
 

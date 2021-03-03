@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
-import { login } from '../../services/auth';
+import { login } from '../../store/session';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Home from '../Home';
 
@@ -11,7 +12,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+const LoginForm = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user);
+
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -25,12 +29,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     const onLogin = async (e) => {
         e.preventDefault();
-        const user = await login(username, password);
-        if (!user.errors) {
-            setAuthenticated(true);
-        } else {
-            setErrors(user.errors);
-        }
+        dispatch(login(username, password)).catch((err) => {
+            setErrors([...err.errors]);
+        });
     };
 
     const updateUsername = (e) => {
@@ -41,7 +42,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         setPassword(e.target.value);
     };
 
-    if (authenticated) {
+    if (user) {
         return <Redirect to="/" />;
     }
 

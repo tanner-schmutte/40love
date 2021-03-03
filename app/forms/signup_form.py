@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Player
 
@@ -13,4 +13,5 @@ def user_exists(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField('username', validators=[DataRequired(), user_exists])
+    ntrp = SelectField('ntrp', validators=[DataRequired()], choices=[str(n/2) for n in range(1,16)])
     password = StringField('password', validators=[DataRequired()])

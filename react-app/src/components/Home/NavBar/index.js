@@ -1,16 +1,16 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 import logo from '../../../media/black_logo.png';
-import { logout } from '../../../services/auth';
+import { logout } from '../../../store/session';
 
-const NavBar = ({ authenticated, setAuthenticated, user }) => {
+const NavBar = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user);
+
     const onLogout = async () => {
-        await logout();
-        setAuthenticated(false);
-
-
-        console.log(user)
+        dispatch(logout());
     };
 
     return (
@@ -22,7 +22,7 @@ const NavBar = ({ authenticated, setAuthenticated, user }) => {
                 <div className="logo-title">40Love</div>
             </div>
             <div className="auth-and-banner">
-                {!authenticated && (
+                {!user && (
                     <div className="login-signup">
                         <div>
                             <NavLink
@@ -34,7 +34,6 @@ const NavBar = ({ authenticated, setAuthenticated, user }) => {
                                 Login
                             </NavLink>
                             <NavLink
-                                setAuthenticated={setAuthenticated}
                                 to="/signup"
                                 exact={true}
                                 activeClassName="active"
@@ -45,7 +44,7 @@ const NavBar = ({ authenticated, setAuthenticated, user }) => {
                         </div>
                     </div>
                 )}
-                {authenticated && (
+                {user && (
                     <div className="authenticated">
                         <div>Welcome back, {user.username}</div>
                         <button onClick={onLogout}>Logout</button>
