@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import UserContextProvider from './context/UserContext';
 
 const store = configureStore();
 

@@ -1,7 +1,7 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 import Marker from '../Marker';
 
 const ContainerContainer = styled.div`
