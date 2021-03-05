@@ -3,8 +3,6 @@ from flask_login import current_user
 
 from ..models.db import db
 from ..models.court import Court
-from ..models.player import Player
-from ..models.hit import Hit
 
 court_routes = Blueprint('courts', __name__)
 
@@ -22,4 +20,3 @@ def get_court(id):
         return jsonify(court.to_dict())
     else:
         return ({'error': 'error'})
-
