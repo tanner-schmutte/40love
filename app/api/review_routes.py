@@ -3,14 +3,14 @@ from flask import Blueprint, jsonify
 from ..models.db import db
 from ..models.hit import Hit
 
-hit_routes = Blueprint('hits', __name__)
+review_routes = Blueprint('reviews', __name__)
 
 
-@hit_routes.route('/<int:id>', methods=['DELETE'])
-def delete_hit(id):
-    hit = Hit.query.get(id)
-    if (hit):
-        db.session.delete(hit)
+@review_routes.route('/<int:id>', methods=['DELETE'])
+def delete_review(id):
+    review = Review.query.get(id)
+    if (review):
+        db.session.delete(review)
         db.session.commit()
         return jsonify({'success': 'success'})
     else:
