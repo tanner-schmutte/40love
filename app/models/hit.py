@@ -26,3 +26,12 @@ class Hit(db.Model):
     player2 = relationship("Player", foreign_keys=[player2_id])
     court = relationship("Court", backref="Hits")
     review = relationship("Review", backref="Hits")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "date": self.date,
+            "player1": self.player1_id,
+            "player2": self.player2_id,
+            "court": self.court_id,
+        }

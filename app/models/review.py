@@ -14,3 +14,12 @@ class Review(db.Model):
     player1 = relationship("Player", foreign_keys=[reviewer])
     player2 = relationship("Player", foreign_keys=[reviewee])
     
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "rating": self.rating,
+            "comment": self.comment,
+            "hit": self.hit_id,
+            "reviewer": self.reviewer,
+            "reviewee": self.reviewee
+        }
