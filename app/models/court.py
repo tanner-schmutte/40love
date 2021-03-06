@@ -1,6 +1,6 @@
 from .db import db
-from .hit import Hit
 from .players_courts import players_courts
+from .hits_courts import hits_courts
 
 
 class Court(db.Model):
@@ -13,3 +13,4 @@ class Court(db.Model):
     longitude = db.Column(db.Numeric(10, 7), nullable=False)
 
     players = relationship("Player", secondary=players_courts)
+    hits = relationship("Hit", secondary=hits_courts)
