@@ -29,6 +29,7 @@ def get_player(id):
 
 
 @player_routes.route('/<int:id>/hits', methods=['POST'])
+@login_required
 def set_hit(id):
     player = Player.query.get(id)
     form = CreateHitForm()
@@ -40,3 +41,8 @@ def set_hit(id):
             player2_id=id,
             court_id=form.data['court'],
         )
+
+@player_routes.route('/<int:id>/reviews', methods=['POST'])
+@login_required
+def leave_review():
+    
