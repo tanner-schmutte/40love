@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, requests
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 from app.models import db, Court, players_courts
 
@@ -22,6 +22,7 @@ def get_court(id):
 
 
 @court_routes.route('/<int:id>', methods=['POST'])
+@login_required
 def add_court(id):
     player = current_user.id
     court = Court.query.get(id)
