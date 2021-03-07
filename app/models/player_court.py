@@ -1,6 +1,6 @@
 from .db import db
 
-players_courts = db.Table(
+Players_Courts = db.Table(
     "players_courts",
     db.Column(
         "player_id",

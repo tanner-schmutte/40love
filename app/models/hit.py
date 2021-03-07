@@ -17,8 +17,10 @@ class Hit(db.Model):
     court_id = db.Column(db.Integer, db.ForeignKey("courts.id"),
                          nullable=False)
 
-    player = db.relationship("Player")
+    player1 = db.relationship("Player", foreign_keys="Hit.player1_id")
+    player2 = db.relationship("Player", foreign_keys="Hit.player2_id")
     court = db.relationship("Court")
+    review = db.relationship("Review")
 
     def to_dict(self):
         return {

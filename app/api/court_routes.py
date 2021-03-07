@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, requests
+from flask import Blueprint, jsonify
 from flask_login import current_user, login_required
 
-from app.models import db, Court, players_courts
+from app.models import db, Court, Players_Courts
 
 court_routes = Blueprint('courts', __name__)
 

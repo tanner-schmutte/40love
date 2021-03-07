@@ -12,6 +12,10 @@ def user_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), user_exists])
-    ntrp = SelectField('ntrp', validators=[DataRequired()], choices=[str(n/2) for n in range(1,16)])
+    username = StringField('username',
+                           validators=[DataRequired(), user_exists])
+
+    ntrp = SelectField('ntrp', validators=[DataRequired()],
+                       choices=[str(n / 2) for n in range(1, 16)])
+
     password = StringField('password', validators=[DataRequired()])

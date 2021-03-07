@@ -1,5 +1,5 @@
 from .db import db
-from .players_courts import players_courts
+from .player_court import Players_Courts
 
 
 class Court(db.Model):
@@ -11,7 +11,7 @@ class Court(db.Model):
     latitude = db.Column(db.Numeric(10, 7), nullable=False)
     longitude = db.Column(db.Numeric(10, 7), nullable=False)
 
-    players = db.relationship("Player", secondary=players_courts)
+    players = db.relationship("Player", secondary=Players_Courts)
 
     def to_dict(self):
         return {

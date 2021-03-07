@@ -39,8 +39,9 @@ def login():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
-        user = Player.query.filter(Player.username == form.data['username'])
-        .first()
+        user = Player.query.filter(
+                Player.username == form.data['username']
+                ).first()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -2,7 +2,7 @@ from .db import db
 
 
 class Review(db.Model):
-    __tablename__ = "Reviews"
+    __tablename__ = "reviews"
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(255), nullable=False)
@@ -16,7 +16,8 @@ class Review(db.Model):
                          nullable=False)
 
     hit = db.relationship("Hit")
-    player = db.relationship("Player")
+    player1 = db.relationship("Player", foreign_keys="Review.reviewer")
+    player2 = db.relationship("Player", foreign_keys="Review.reviewee")
 
     def to_dict(self):
         return {

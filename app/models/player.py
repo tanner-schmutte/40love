@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .players_courts import players_courts
+from .player_court import Players_Courts
 
 
 class Player(db.Model, UserMixin):
@@ -12,9 +12,13 @@ class Player(db.Model, UserMixin):
     ntrp = db.Column(db.Numeric(2, 1), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    courts = db.relationship("Court", secondary=players_courts)
-    hits = db.relationship("Hit")
-    reviews = db.relationship("Review")
+    courts = db.relationship("Court", secondary=Players_Courts)
+
+    hit1 = db.relationship("Hit", foreign_keys="Hit.player1_id")
+    hit2 = db.relationship("Hit", foreign_keys="Hit.player2_id")
+
+    reviewer = db.relationship("Review", foreign_keys="Review.reviewer")
+    reviewee = db.relationship("Review", foreign_keys="Review.reviewee")
 
     @property
     def password(self):

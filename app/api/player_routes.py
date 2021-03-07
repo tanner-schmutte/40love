@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 
 from app.models import db, Player, Court, Hit
-from app.forms import CreateHitForm
+from app.forms import CreateHitForm, CreateReviewForm
 
 
 player_routes = Blueprint('players', __name__)
@@ -51,8 +51,8 @@ def set_hit(id):
 @login_required
 def leave_review(id):
     player = Player.query.get(id)
-    hit = Hit.query.filter((player1_id=id and player2_id=current_user) or
-                           (player2_id=id and player1_id=current_user)).all()
+    hit = Hit.query.filter((player1_id == id and player2_id == current_user) or
+                           (player2_id == id and player1_id == current_user)).all()
     form = CreateReviewForm()
     form['csrf_token'] = request.cookies['csrf_token']
     if form.validate_on_submit():
