@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify
 
-from ..models.db import db
-from ..models.hit import Hit
+from app.models import db, Hit
 
 hit_routes = Blueprint('hits', __name__)
 

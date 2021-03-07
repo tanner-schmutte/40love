@@ -1,5 +1,4 @@
 from .db import db
-from sqlalchemy.orm import relationship
 
 
 class Review(db.Model):
@@ -7,13 +6,18 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(255), nullable=False)
-    hit_id = db.Column(db.Integer, db.ForeignKey("Hits.id"))
-    reviewer = db.Column(db.Integer, db.ForeignKey("Players.id"))
-    reviewee = db.Column(db.Integer, db.ForeignKey("Players.id"))
 
-    player1 = relationship("Player", foreign_keys=[reviewer])
-    player2 = relationship("Player", foreign_keys=[reviewee])
-    
+    hit_id = db.Column(db.Integer, db.ForeignKey("hits.id"), nullable=False)
+
+    reviewer = db.Column(db.Integer, db.ForeignKey("players.id"),
+                         nullable=False)
+
+    reviewee = db.Column(db.Integer, db.ForeignKey("players.id"),
+                         nullable=False)
+
+    hit = db.relationship("Hit")
+    player = db.relationship("Player")
+
     def to_dict(self):
         return {
             "id": self.id,

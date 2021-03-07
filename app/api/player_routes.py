@@ -1,11 +1,8 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 
-from ..models.db import db
-from ..models.player import Player
-from ..models.court import Court
-from ..models.hit import Hit
-from ..forms.create_hit_form import CreateHitForm
+from app.models import db, Player, Court, Hit
+from app.forms import CreateHitForm
 
 
 player_routes = Blueprint('players', __name__)
@@ -46,7 +43,8 @@ def set_hit(id):
         return jsonify(hit.to_dict())
     else:
         return jsonify({'errors':
-                        validation_errors_to_error_messages(form.errors)}), 401
+                        validation_errors_to_error_messages(form.errors)
+                        }), 401
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])
@@ -70,4 +68,5 @@ def leave_review(id):
         return jsonify(review.to_dict())
     else:
         return jsonify({'errors':
-                        validation_errors_to_error_messages(form.errors)}), 401
+                        validation_errors_to_error_messages(form.errors)
+                        }), 401

@@ -1,8 +1,7 @@
 from flask import Blueprint, jsonify, requests
 from flask_login import current_user
 
-from ..models.db import db
-from ..models.court import Court
+from app.models import db, Court, players_courts
 
 court_routes = Blueprint('courts', __name__)
 
@@ -20,3 +19,15 @@ def get_court(id):
         return jsonify(court.to_dict())
     else:
         return ({'error': 'error'})
+
+
+@court_routes.route('/<int:id>', methods=['POST'])
+def add_court(id):
+    player = current_user.id
+    court = Court.query.get(id)
+    player_court = players_courts(
+        player_id=player,
+        court_id=court
+    )
+    db.session.add(player_court)
+    db.session.commit()

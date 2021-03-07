@@ -6,19 +6,19 @@ from app.models import db, Player
 def seed_users():
 
     seed = [
-        Player(username='Roger Federer', ntrp='7.0', password='password'),
-        Player(username='Rafa Nadal', ntrp='7.0', password='password'),
-        Player(username='Novak Djokovic', ntrp='7.0', password='password'),
-        Player(username='Serena Williams', ntrp='7.0', password='password'),
-        Player(username='Dominic Decoco', ntrp='7.0', password='password'),
-        Player(username='Ron Bergundy', ntrp='7.0', password='password'),
-        Player(username='Madison Keys', ntrp='7.0', password='password'),
-        Player(username='Gael Monfils', ntrp='7.0', password='password'),
-        Player(username='Andre Agassi', ntrp='7.0', password='password'),
-        Player(username='Steffi Graf', ntrp='7.0', password='password'),
-        Player(username='Maria Sharapova', ntrp='7.0', password='password'),
-        Player(username='Nick Kyrgios', ntrp='7.0', password='password'),
-        Player(username='LeBron James', ntrp='7.0', password='password'),
+        Player(username='Roger_Federer', ntrp='7.0', password='password'),
+        Player(username='Rafa_Nadal', ntrp='7.0', password='password'),
+        Player(username='Novak_Djokovic', ntrp='7.0', password='password'),
+        Player(username='Serena_Williams', ntrp='7.0', password='password'),
+        Player(username='Dominic_Decoco', ntrp='4.0', password='password'),
+        Player(username='Ron_Bergundy', ntrp='1.5', password='password'),
+        Player(username='Madison_Keys', ntrp='7.0', password='password'),
+        Player(username='Gael_Monfils', ntrp='7.0', password='password'),
+        Player(username='Andre_Agassi', ntrp='7.0', password='password'),
+        Player(username='Steffi_Graf', ntrp='7.0', password='password'),
+        Player(username='Maria_Sharapova', ntrp='7.0', password='password'),
+        Player(username='Nick_Kyrgios', ntrp='7.0', password='password'),
+        Player(username='LeBron_James', ntrp='3.5', password='password'),
     ]
 
     db.session.add_all(seed)
