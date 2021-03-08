@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useLayer, Arrow } from 'react-laag';
 
@@ -22,7 +23,8 @@ const InfoBox = styled.div`
     font-weight: bold;
 `;
 
-export default function Marker({ name }) {
+export default function Marker({ id, name }) {
+    const history = useHistory();
     const [isOpen, setOpen] = useState(false);
     const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
         isOpen,
@@ -38,6 +40,10 @@ export default function Marker({ name }) {
                 {...triggerProps}
                 onMouseOver={() => setOpen(true)}
                 onMouseLeave={() => setOpen(false)}
+                onClick={() => {
+                    console.log('clicked');
+                    history.push(`/courts/${id}`);
+                }}
             />
             {isOpen &&
                 renderLayer(

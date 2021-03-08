@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components';
 import Marker from '../Marker';
@@ -23,8 +22,7 @@ const MapContainer = styled.div`
 `;
 
 export default function Map() {
-    const history = useHistory();
-
+    
     const [courts, setCourts] = useState();
 
     useEffect(() => {
@@ -34,8 +32,6 @@ export default function Map() {
             setCourts(allCourts);
         })();
     }, []);
-
-    console.log('courts:', courts);
 
     return (
         <ContainerContainer>
@@ -50,9 +46,7 @@ export default function Map() {
                     {courts &&
                         courts.map((court) => (
                             <Marker
-                                onClick={() =>
-                                    history.push(`/courts/${court.id}`)
-                                }
+                                id={court.id}
                                 lat={court.latitude}
                                 lng={court.longitude}
                                 name={court.name}

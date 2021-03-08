@@ -9,6 +9,7 @@ import SignUpForm from './components/auth/SignUpForm';
 // import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
+import Court from './components/Court';
 
 function App() {
     const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function App() {
                 </Route>
                 <Route path="/signup" exact={true}>
                     <SignUpForm />
+                </Route>
+                <Route path="/courts/:id">
+                    <Court />
                 </Route>
 
                 {/* <ProtectedRoute

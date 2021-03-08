@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -8,8 +8,20 @@ import { getCourt } from '../../../services/courts';
 
 const NavBar = () => {
     // const user = useSelector((state) => state.session.user);
+
+    const [court, setCourt] = useState();
+
     const { id } = useParams();
-    const court = getCourt(id);
+
+    useEffect(() => {
+        (async () => {
+            const fetchedCourt = await getCourt(id);
+
+            setCourt(fetchedCourt);
+        })();
+    }, []);
+
+    console.log('court', court)
 
     return (
         <nav className="navbar">
@@ -19,8 +31,8 @@ const NavBar = () => {
                 </div>
             </div>
             <div className="court-info">
-                <div>{court.name}</div>
-                <div>{court.address}</div>
+                {/* <div>{court.name}</div> */}
+                {/* <div>{court.address}</div> */}
             </div>
             <div className="back-to-home-button">
                 <button>Back to Map</button>

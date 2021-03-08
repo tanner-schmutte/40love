@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Map from './Map';
 import NavBar from './NavBar';
+import Map from './Map';
 import Footer from './Footer';
 
 const Home = () => (
