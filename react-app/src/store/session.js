@@ -36,7 +36,7 @@ export const login = (username, password) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-    const response = await fetch('/api/auth/logout', {
+    await fetch('/api/auth/logout', {
         headers: {
             'Content-Type': 'application/json',
         },

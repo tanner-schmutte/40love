@@ -18,6 +18,6 @@ class Court(db.Model):
             "id": self.id,
             "name": self.name,
             "address": self.address,
-            "latitude": self.latitude,
-            "longitude": self.longitude
+            "latitude": str(self.latitude),
+            "longitude": str(self.longitude)
         }

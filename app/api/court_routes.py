@@ -24,11 +24,9 @@ def get_court(id):
 @court_routes.route('/<int:id>', methods=['POST'])
 @login_required
 def add_court(id):
-    player = current_user.id
-    court = Court.query.get(id)
-    player_court = players_courts(
-        player_id=player,
-        court_id=court
+    player_court = Players_Courts(
+        player_id=current_user.id,
+        court_id=Court.query.get(id)
     )
     db.session.add(player_court)
     db.session.commit()

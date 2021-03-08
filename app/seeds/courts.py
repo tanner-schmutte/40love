@@ -24,6 +24,11 @@ def seed_courts():
         Court(name='Jackson Playground', address='17th St & Arkansas St, San Francisco, CA 94107', latitude=37.763881524, longitude=-122.400189),
         Court(name='Frances M McAteer', address='San Francisco, CA', latitude=37.73607, longitude=-122.47816),
         Court(name='Sunset Recreation', address='2201 Lawton St, San Francisco, CA 94122', latitude=37.7568065, longitude=-122.487155329),
+        Court(name='Noe Valley', address='24th St, San Francisco, CA 94114', latitude=37.7512, longitude=-122.4393),
+        Court(name='Alta Plaza', address='2499 Steiner St, San Francisco, CA 94115', latitude=37.79226, longitude=-122.43625),
+        Court(name='Glen Park', address='62 Elk St, San Francisco, CA 94131', latitude=37.73611, longitude=-122.43978),
+        Court(name='Balboa Park', address='San Jose Avenue, San Francisco, CA 94112', latitude=37.7253, longitude=-122.4431),
+        Court(name='Moscone Recreation Center', address='1800 Chestnut St, San Francisco, California 94123', latitude=37.7971, longitude=-122.4483)
     ]
 
     db.session.add_all(seed)

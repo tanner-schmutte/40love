@@ -10,15 +10,17 @@ function Footer() {
                         id="linkedinlogo"
                         href="https://www.linkedin.com/in/tannman/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-linkedin fa-3x"></i>
+                        <i className="fab fa-linkedin fa-3x"></i>
                     </a>
                     <a
                         id="githublogo"
                         href="https://github.com/tanner-schmutte/40Love"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-github fa-3x"></i>
+                        <i className="fab fa-github fa-3x"></i>
                     </a>
                 </div>
             </div>

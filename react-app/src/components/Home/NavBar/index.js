@@ -44,6 +44,7 @@ const NavBar = () => {
                         </div>
                     </div>
                 )}
+
                 {user && (
                     <div className="authenticated">
                         <div>Welcome back, {user.username}</div>
