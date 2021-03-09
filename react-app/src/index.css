@@ -3,6 +3,5 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border-left: 10px solid black;
-    border-right: 10px solid black;
+    background-color: #21b786;
 }

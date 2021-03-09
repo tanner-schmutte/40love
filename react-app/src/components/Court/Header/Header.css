@@ -3,12 +3,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     background-color: #bbe6c0;
+    border-top: 10px solid black;
 }
 
 .court-info {
     font-family: 'Optima';
     font-weight: bold;
-    font-size: 1.5rem;
     background-color: #21b786;
     border: 10px solid black;
     border-radius: 60px;
@@ -16,12 +16,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin: 5px 5px 5px 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
 .court-name {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .court-address {
