@@ -19,11 +19,11 @@ const NavBar = () => {
 
             setCourt(fetchedCourt);
         })();
-    }, []);
+    }, [id]);
 
     console.log('court', court)
 
-    return (
+    return court ? (
         <nav className="navbar">
             <div className="logo-container">
                 <div>
@@ -31,14 +31,14 @@ const NavBar = () => {
                 </div>
             </div>
             <div className="court-info">
-                {/* <div>{court.name}</div> */}
-                {/* <div>{court.address}</div> */}
+                <div>{court.name}</div>
+                <div>{court.address}</div>
             </div>
             <div className="back-to-home-button">
                 <button>Back to Map</button>
             </div>
         </nav>
-    );
+    ) : null;
 };
 
 export default NavBar;

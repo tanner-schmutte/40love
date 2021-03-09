@@ -11,7 +11,8 @@ export const authenticate = () => async (dispatch) => {
             'Content-Type': 'application/json',
         },
     });
-    const user = await response.json();
+    let user = await response.json();
+    if (user.errors) user = null;
     dispatch(setSession(user));
 };
 
