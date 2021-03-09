@@ -51,7 +51,7 @@ export default function Marker({ id, name }) {
                         {name}
                         <Arrow
                             {...arrowProps}
-                            borderWidth={2}
+                            borderWidth={2.5}
                             borderColor="black"
                             backgroundColor="#21B786"
                         />

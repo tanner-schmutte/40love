@@ -6,7 +6,9 @@ import logo from '../../../media/black_logo.png';
 
 import { getCourt } from '../../../services/courts';
 
-const NavBar = () => {
+import './Header.css';
+
+const Header = () => {
     // const user = useSelector((state) => state.session.user);
 
     const [court, setCourt] = useState();
@@ -24,15 +26,15 @@ const NavBar = () => {
     console.log('court', court)
 
     return court ? (
-        <nav className="navbar">
+        <nav className="header">
             <div className="logo-container">
                 <div>
                     <img className="logo" src={logo} alt="" />
                 </div>
             </div>
             <div className="court-info">
-                <div>{court.name}</div>
-                <div>{court.address}</div>
+                <div className="court-name">{court.name}</div>
+                <div className="court-address">{court.address}</div>
             </div>
             <div className="back-to-home-button">
                 <button>Back to Map</button>
@@ -41,4 +43,4 @@ const NavBar = () => {
     ) : null;
 };
 
-export default NavBar;
+export default Header;
