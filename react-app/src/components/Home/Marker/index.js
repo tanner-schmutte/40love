@@ -41,7 +41,6 @@ export default function Marker({ id, name }) {
                 onMouseOver={() => setOpen(true)}
                 onMouseLeave={() => setOpen(false)}
                 onClick={() => {
-                    console.log('clicked');
                     history.push(`/courts/${id}`);
                 }}
             />
