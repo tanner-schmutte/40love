@@ -24,8 +24,8 @@ const Header = () => {
 
     return court ? (
         <nav className="header">
-            <div className="logo-container">
-                <img className="logo" src={logo} alt="" href="/" />
+            <div className="logo-court-container">
+                <img className="logo-court" src={logo} alt="" href="/" />
             </div>
             <div className="court-info">
                 <div className="court-name">{court.name}</div>

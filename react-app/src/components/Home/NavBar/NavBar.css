@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: #bbe6c0;
-    padding: 10px;
+    /* padding: 10px; */
     border-bottom: 10px solid black;
     border-top: 10px solid black;
 }
@@ -31,6 +31,8 @@
 }
 
 .login-signup {
+    margin-top: 10px;
+    margin-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -77,6 +79,7 @@
     background-color: #21b786;
     border: 3px solid black;
     padding-left: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
 }
 
