@@ -29,3 +29,13 @@ def add_court(id):
     db.session.commit()
 
     return ({'success': 'success'})
+
+
+@court_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def remove_court(id):
+    court = Court.query.get(id)
+    court.players.remove(current_user)
+    db.session.commit()
+
+    return ({'success': 'success'})
