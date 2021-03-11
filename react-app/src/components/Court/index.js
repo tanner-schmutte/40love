@@ -8,6 +8,7 @@ import ntrpDropdown from './ntrpDropdown';
 const Court = () => (
     <>
         <Header />
+        <AddCourt />
     </>
 );
 
