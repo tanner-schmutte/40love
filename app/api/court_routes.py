@@ -31,6 +31,16 @@ def add_court(id):
     return ({'success': 'success'})
 
 
+@court_routes.route('/<int:id>/players')
+def check_court(id):
+    court = Court.query.get(id)
+
+    if current_user in court.players:
+        return ({'added': True})
+    else:
+        return ({'added': False})
+
+
 @court_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def remove_court(id):

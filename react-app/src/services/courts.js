@@ -26,3 +26,13 @@ export const addCourt = async (courtId) => {
 
     return await res.json();
 };
+
+export const courtCheck = async (courtId) => {
+    const res = await fetch(`/api/courts/${courtId}/players`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};

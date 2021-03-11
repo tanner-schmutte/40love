@@ -36,15 +36,36 @@
     font-size: 1rem;
 }
 
+.button-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .back-to-home-button {
     display: flex;
     justify-content: flex-end;
-    align-items: start;
+    align-items: flex-start;
     margin-top: 10px;
     margin-right: 10px;
 }
 
 .back-to-home-button button {
+    color: black;
+    background-color: #bbe6c0;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+}
+
+.remove-court-button {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.remove-court-button button {
     color: black;
     background-color: #bbe6c0;
     text-decoration: none;
