@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import logo from '../../../media/black_logo.png';
