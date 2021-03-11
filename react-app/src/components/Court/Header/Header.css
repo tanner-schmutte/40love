@@ -6,6 +6,12 @@
     border-top: 10px solid black;
 }
 
+.logo {
+    height: 150px;
+    width: 150px;
+    padding: 10px;
+}
+
 .court-info {
     font-family: 'Optima';
     font-weight: bold;
@@ -17,7 +23,7 @@
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -39,7 +45,7 @@
     margin-right: 10px;
 }
 
-button {
+.back-to-home-button button {
     color: black;
     background-color: #bbe6c0;
     text-decoration: none;

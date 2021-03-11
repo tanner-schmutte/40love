@@ -1,12 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 
 import { addCourt } from '../../../services/courts';
 
-const AddCourt = () => {
-    // const player = useSelector((state) => state.session.user);
+import './AddCourt.css';
 
+const AddCourt = () => {
     const { id } = useParams();
 
     const addCourtHandler = async () => {
@@ -14,9 +13,9 @@ const AddCourt = () => {
     };
 
     return (
-        <button className="add-court" onClick={addCourtHandler}>
-            Add court
-        </button>
+        <div className="add-court">
+            <button onClick={addCourtHandler}>Add court</button>
+        </div>
     );
 };
 

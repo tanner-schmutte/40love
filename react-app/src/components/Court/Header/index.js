@@ -23,21 +23,21 @@ const Header = () => {
         })();
     }, [id]);
 
-    console.log('court', court)
-
     return court ? (
         <nav className="header">
             <div className="logo-container">
-                <div>
-                    <img className="logo" src={logo} alt="" />
-                </div>
+                <a href="/">
+                    <img className="logo" src={logo} alt="" href="/" />
+                </a>
             </div>
             <div className="court-info">
                 <div className="court-name">{court.name}</div>
                 <div className="court-address">{court.address}</div>
             </div>
             <div className="back-to-home-button">
-                <button>Back to Map</button>
+                <a href="/">
+                    <button>Back to Map</button>
+                </a>
             </div>
         </nav>
     ) : null;
