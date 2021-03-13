@@ -1,53 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../../media/black_logo.png';
 
-import { getCourt, courtCheck } from '../../../services/courts';
+import { getCourt } from '../../../services/courts';
+import { courtCheck } from '../../../store/court';
 
 import './Header.css';
 
 const Header = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const courtAdded = useSelector((state) => state.court.court);
 
     const [court, setCourt] = useState();
-    const [courtAdded, setCourtAdded] = useState();
 
     const { id } = useParams();
 
     useEffect(() => {
-        (async () => {
-            const fetchedCourt = await getCourt(id);
-            const courtChecker = await courtCheck(id);
-
-            setCourt(fetchedCourt);
-            setCourtAdded(courtChecker.added);
-        })();
+        dispatch(courtCheck(id));
     }, [id]);
 
-    if (courtAdded) {
-        return court ? (
-            <nav className="header">
-                <div className="logo-court-container">
-                    <img className="logo-court" src={logo} alt="" href="/" />
-                </div>
-                <div className="court-info">
-                    <div className="court-name">{court.name}</div>
-                    <div className="court-address">{court.address}</div>
-                </div>
-                <div className="button-holder">
-                    <div className="remove-court-button">
-                        <button>Remove Court</button>
-                    </div>
-                    <div className="back-to-home-button">
-                        <button onClick={() => history.push('/')}>
-                            Back to Map
-                        </button>
-                    </div>
-                </div>
-            </nav>
-        ) : null;
-    }
+    useEffect(() => {
+        (async () => {
+            const fetchedCourt = await getCourt(id);
+
+            setCourt(fetchedCourt);
+        })();
+    }, [id]);
 
     return court ? (
         <nav className="header">
@@ -58,9 +40,26 @@ const Header = () => {
                 <div className="court-name">{court.name}</div>
                 <div className="court-address">{court.address}</div>
             </div>
-            <div className="back-to-home-button">
-                <button onClick={() => history.push('/')}>Back to Map</button>
-            </div>
+
+            {courtAdded && (
+                <div className="button-holder">
+                    <div className="remove-court-button">
+                        <button>Remove Court</button>
+                    </div>
+                    <div className="back-to-home-button">
+                        <button onClick={() => history.push('/')}>
+                            Back to Map
+                        </button>
+                    </div>
+                </div>
+            )}
+            {!courtAdded && (
+                <div className="back-to-home-button">
+                    <button onClick={() => history.push('/')}>
+                        Back to Map
+                    </button>
+                </div>
+            )}
         </nav>
     ) : null;
 };
