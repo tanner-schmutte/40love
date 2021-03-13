@@ -28,7 +28,7 @@ def add_court(id):
     court.players.append(current_user)
     db.session.commit()
 
-    return ({'success': 'success'})
+    return ({'added': True})
 
 
 @court_routes.route('/<int:id>/players')
@@ -48,4 +48,4 @@ def remove_court(id):
     court.players.remove(current_user)
     db.session.commit()
 
-    return ({'success': 'success'})
+    return ({'added': False})
