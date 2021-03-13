@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../../media/black_logo.png';
 
-import { getCourt } from '../../../services/courts';
+import { getCourt, removeCourt } from '../../../services/courts';
 import { courtCheck } from '../../../store/court';
 
 import './Header.css';
@@ -18,6 +18,11 @@ const Header = () => {
     const [court, setCourt] = useState();
 
     const { id } = useParams();
+
+    const removeCourtHandler = async () => {
+        await removeCourt(id);
+        dispatch(courtCheck(id));
+    };
 
     useEffect(() => {
         dispatch(courtCheck(id));
@@ -44,7 +49,9 @@ const Header = () => {
             {courtAdded && (
                 <div className="button-holder">
                     <div className="remove-court-button">
-                        <button>Remove Court</button>
+                        <button onClick={removeCourtHandler}>
+                            Remove Court
+                        </button>
                     </div>
                     <div className="back-to-home-button">
                         <button onClick={() => history.push('/')}>
