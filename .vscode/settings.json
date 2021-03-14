@@ -1,6 +1,6 @@
 {
     "python.pythonPath": "/Users/tannman/.pyenv/shims/python",
-    "python.linting.pylintEnabled": false,
+    "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.pycodestyleEnabled": true
 }
