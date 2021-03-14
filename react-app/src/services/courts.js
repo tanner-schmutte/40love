@@ -38,4 +38,12 @@ export const removeCourt = async (courtId) => {
     return await res.json();
 };
 
+export const filterPlayersByCourtAndNtrp = async (courtId, ntrp) => {
+    const res = await fetch(`/api/court/${courtId}/ntrp/${ntrp}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
+    return await res.json();
+};
