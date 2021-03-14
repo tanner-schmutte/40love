@@ -26,7 +26,7 @@ const Header = () => {
 
     useEffect(() => {
         dispatch(courtCheck(id));
-    }, [id]);
+    });
 
     useEffect(() => {
         (async () => {

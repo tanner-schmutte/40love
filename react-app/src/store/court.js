@@ -20,8 +20,6 @@ export const courtCheck = (courtId) => async (dispatch) => {
 export default function reducer(state = { court: false }, action) {
     switch (action.type) {
         case COURT:
-            console.log('action', action);
-
             return { ...state, court: action.court };
         default:
             return state;
