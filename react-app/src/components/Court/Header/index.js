@@ -50,7 +50,7 @@ const Header = () => {
                 <div className="button-holder">
                     <div className="remove-court-button">
                         <button onClick={removeCourtHandler}>
-                            Remove Court
+                            Remove Courts
                         </button>
                     </div>
                     <div className="back-to-home-button">

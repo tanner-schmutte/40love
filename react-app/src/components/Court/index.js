@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Header from './Header';
 import AddCourt from './AddCourt';
+import NtrpDropdown from './NtrpDropdown';
 import PlayerList from './PlayerList';
-import ntrpDropdown from './ntrpDropdown';
 
 const Court = () => {
     const { id } = useParams();
 
     const courtAdded = useSelector((state) => state.court.court);
+    const user = useSelector((state) => state.session.user);
 
     const dispatch = useDispatch();
 
@@ -22,7 +23,8 @@ const Court = () => {
     return (
         <>
             <Header />
-            {!courtAdded && < AddCourt />}
+            {!courtAdded && user && <AddCourt />}
+            {courtAdded && <NtrpDropdown />}
         </>
     );
 };
