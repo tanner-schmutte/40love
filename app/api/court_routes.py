@@ -49,3 +49,14 @@ def remove_court(id):
     db.session.commit()
 
     return ({'added': False})
+
+
+@court_routes.route('/<int:id>/ntrp/<string:ntrp>')
+@login_required
+def filter_by_court_and_ntrp(id, ntrp):
+    players_ntrp = Player.query.filter(Player.ntrp == ntrp).all()
+    players_court = Player.query.filter(Player.id == court.players).all()
+
+    players = [x for x in players_ntrp if x in players_court]
+
+    return jsonify([player.to_dict for player in players])
