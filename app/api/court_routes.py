@@ -54,6 +54,7 @@ def remove_court(id):
 @court_routes.route('/<int:id>/ntrp/<string:ntrp>')
 @login_required
 def filter_by_court_and_ntrp(id, ntrp):
+    court = Court.query.get(id)
     players_ntrp = Player.query.filter(Player.ntrp == ntrp).all()
     players_court = Player.query.filter(Player.id == court.players).all()
 
