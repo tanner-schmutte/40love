@@ -14,17 +14,18 @@ const PlayerList = ({ ntrp }) => {
         (async () => {
             const filter = await filterPlayersByCourtAndNtrp(id, ntrp);
 
-            setPlayers(filter)
+            setPlayers(filter);
         })();
     }, [id, ntrp]);
 
-    console.log(players);
-
     return (
         <div>
-            <div className="player-list">
-                <div className="ntrp">{ntrp}</div>
-            </div>
+            {players &&
+                players.map((player) => (
+                    <div className="player-list">
+                        <div className="player">{player.username}</div>
+                    </div>
+                ))}
         </div>
     );
 };
