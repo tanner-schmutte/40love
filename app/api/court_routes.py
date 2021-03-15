@@ -55,9 +55,9 @@ def remove_court(id):
 @login_required
 def filter_by_court_and_ntrp(id, ntrp):
     court = Court.query.get(id)
+    court_players = court.players
     players_ntrp = Player.query.filter(Player.ntrp == ntrp).all()
-    players_court = Player.query.filter(Player.id == court.players).all()
 
-    players = [x for x in players_ntrp if x in players_court]
+    players = [x for x in players_ntrp if x in court_players]
 
-    return jsonify([player.to_dict for player in players])
+    return jsonify([player.to_dict() for player in players])

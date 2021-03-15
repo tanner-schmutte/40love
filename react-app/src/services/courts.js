@@ -39,7 +39,7 @@ export const removeCourt = async (courtId) => {
 };
 
 export const filterPlayersByCourtAndNtrp = async (courtId, ntrp) => {
-    const res = await fetch(`/api/court/${courtId}/ntrp/${ntrp}`, {
+    const res = await fetch(`/api/courts/${courtId}/ntrp/${ntrp}`, {
         headers: {
             'Content-Type': 'application/json',
         },
