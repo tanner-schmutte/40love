@@ -16,7 +16,7 @@ function Footer() {
                     </a>
                     <a
                         id="githublogo"
-                        href="https://github.com/tanner-schmutte/40Love"
+                        href="https://github.com/tanner-schmutte"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
