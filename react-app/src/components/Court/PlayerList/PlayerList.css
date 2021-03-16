@@ -1,9 +1,12 @@
-.player-list { 
+.player-list {
     display: flex;
     justify-content: center;
 }
 
 .player {
+    display: flex;
+    justify-content: center;
+    width: 200px;
     color: black;
     background-color: #bbe6c0;
     text-decoration: none;
@@ -15,4 +18,9 @@
     border-radius: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.player:hover {
+    /* color: #21b786; */
+    color: blue;
 }
