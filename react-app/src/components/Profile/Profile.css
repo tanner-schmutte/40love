@@ -1,0 +1,16 @@
+.profile-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.review-list {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.clicky-stuff {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px
+}
