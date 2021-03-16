@@ -20,7 +20,7 @@ def players():
 def get_player(id):
     player = Player.query.get(id)
     if player:
-        return player.to_dict()
+        return jsonify(player.to_dict())
     else:
         return ({"error": "error"})
 

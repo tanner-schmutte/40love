@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import logo from '../../../media/black_logo.png';
-
 import { getCourt, removeCourt } from '../../../services/courts';
 import { courtCheck } from '../../../store/court';
+
+import logo from '../../../media/black_logo.png';
 
 import './Header.css';
 
@@ -39,7 +39,7 @@ const Header = () => {
     return court ? (
         <nav className="header">
             <div className="logo-court-container">
-                <img className="logo-court" src={logo} alt="" href="/" />
+                <img className="logo-court" src={logo} alt="" />
             </div>
             <div className="court-info">
                 <div className="court-name">{court.name}</div>

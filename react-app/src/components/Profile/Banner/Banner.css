@@ -1,0 +1,19 @@
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-icon {
+    height: 150px;
+    width: 150px;
+    padding: 10px;
+    margin-left: -75px;
+}
+
+.username {
+    font-family: 'Optima';
+    font-weight: bold;
+    font-size: 3rem;
+}

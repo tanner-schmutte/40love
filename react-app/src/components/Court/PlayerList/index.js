@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { filterPlayersByCourtAndNtrp } from '../../../services/courts';
 
 import './PlayerList.css';
 
 const PlayerList = ({ ntrp }) => {
+    const history = useHistory();
     const { id } = useParams();
 
     const [players, setPlayers] = useState();
@@ -23,7 +24,14 @@ const PlayerList = ({ ntrp }) => {
             {players &&
                 players.map((player) => (
                     <div className="player-list">
-                        <div className="player">{player.username}</div>
+                        <div
+                            className="player"
+                            onClick={() => {
+                                history.push(`/players/${player.id}`)
+                            }}
+                        >
+                            {player.username}
+                        </div>
                     </div>
                 ))}
         </div>
