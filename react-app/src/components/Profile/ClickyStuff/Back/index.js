@@ -1,11 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './Back.css';
 
 const Back = () => {
+    const history = useHistory();
+
     return (
         <>
-            <div>Back</div>
+            <div className="go-back" onClick={() => history.goBack()}>
+                Back
+            </div>
         </>
     );
 };
