@@ -22,10 +22,13 @@ const Banner = () => {
     }, [id]);
 
     return player ? (
-        <nav className="title">
-            <img className="player-icon" src={icon} alt="" />
-            <div className="username">{player.username}</div>
-        </nav>
+        <>
+            <nav className="title">
+                <img className="player-icon" src={icon} alt="" />
+                <div className="username">{player.username}</div>
+            </nav>
+            <div className="ntrp-rating">ntrp: {player.ntrp}</div>
+        </>
     ) : null;
 };
 
