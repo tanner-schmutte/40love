@@ -27,7 +27,7 @@ const PlayerList = ({ ntrp }) => {
                         <div
                             className="player"
                             onClick={() => {
-                                history.push(`/players/${player.id}`)
+                                history.push(`/players/${player.id}`);
                             }}
                         >
                             {player.username}
