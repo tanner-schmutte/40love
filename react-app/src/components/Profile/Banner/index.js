@@ -21,8 +21,6 @@ const Banner = () => {
         })();
     }, [id]);
 
-    console.log(player);
-
     return player ? (
         <nav className="title">
             <img className="player-icon" src={icon} alt="" />
