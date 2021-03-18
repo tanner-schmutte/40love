@@ -22,6 +22,14 @@ function Footer() {
                     >
                         <i className="fab fa-github fa-3x"></i>
                     </a>
+                    <a
+                        id="angellistlogo"
+                        href="https://angel.co/tanner-schmutte"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fab fa-angellist fa-3x"></i>
+                    </a>
                 </div>
             </div>
         </div>
