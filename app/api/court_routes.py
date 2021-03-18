@@ -58,6 +58,6 @@ def filter_by_court_and_ntrp(id, ntrp):
     court_players = court.players
     players_ntrp = Player.query.filter(Player.ntrp == ntrp).all()
 
-    players = [x for x in players_ntrp if x in court_players]
+    players = [x for x in players_ntrp if x in court_players and x != current_user]
 
     return jsonify([player.to_dict() for player in players])
