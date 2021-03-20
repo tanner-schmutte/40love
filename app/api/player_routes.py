@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
 from app.models import db, Player, Court, Hit
@@ -35,17 +35,18 @@ def set_hit(id):
 
     form = CreateHitForm()
 
-    form['csrf_token'] = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         hit = Hit(
             date=form.data['day_n_time'],
             player1_id=current_user.id,
             player2_id=id,
-            court_id=form.data['court'].id,
+            court_id=form.data['court'],
         )
         db.session.add(hit)
         db.session.commit()
+        
         return jsonify(hit.to_dict())
     else:
         return jsonify({'errors':

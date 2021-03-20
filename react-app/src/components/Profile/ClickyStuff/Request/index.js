@@ -15,14 +15,22 @@ const Request = () => {
     const [date, setDate] = useState(new Date());
 
     const user = useSelector((state) => state.session.user);
+    const courtId = useSelector(state => state.court.court.id)
+
+
+    console.log('date', date)
+    console.log('userId', user?.id)
+    console.log('id', id)
+    console.log('courtId', courtId)
+
 
     const handleDateChange = (date) => {
         setDate(date);
     };
 
-    // const onSubmit = async (e) => {
-    //     await requestHit(date, user.id, id, courtId);
-    // };
+    const onSubmit = async (e) => {
+        await requestHit(date, user.id, id, courtId);
+    };
 
     return (
         <>
@@ -35,7 +43,7 @@ const Request = () => {
                     dateFormat="Pp"
                 />
                 <CourtPicker/>
-                {/* <div onClick={onSubmit}>Submit</div> */}
+                <button onClick={onSubmit}>Submit</button>
             </form>
         </>
     );

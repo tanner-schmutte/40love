@@ -5,5 +5,6 @@ from app.models import Hit, Court
 
 
 class CreateHitForm(FlaskForm):
-    court = SelectField("Court", validators=[DataRequired()], choices=[])
+    court = SelectField("Court", validators=[DataRequired()],
+                        choices=[x for x in range(1, 26)])
     day_n_time = DateTimeField("Day 'n' Time", validators=[DataRequired()])

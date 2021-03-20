@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { getPlayerCourts } from '../../../../../services/players';
+import { chooseCourt } from '../../../../../store/court';
 
 import './CourtPicker.css';
 
 const CourtPicker = () => {
     const { id } = useParams();
     const [courts, setCourts] = useState();
-    const [court, setCourt] = useState();
+
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        setCourt(e.target.value);
+        dispatch(chooseCourt(e.target.value));
     };
 
     useEffect(() => {
@@ -22,7 +25,7 @@ const CourtPicker = () => {
         })();
     }, [id]);
 
-    return (
+    return courts ? (
         <div>
             <div>
                 <label>
@@ -31,13 +34,15 @@ const CourtPicker = () => {
                         <option defaultValue=""></option>
                         {courts &&
                             courts.map((court) => (
-                                <option value={court.id}>{court.name}</option>
+                                <option key={court.id} value={court.id}>
+                                    {court.name}
+                                </option>
                             ))}
                     </select>
                 </label>
             </div>
         </div>
-    );
+    ) : null;
 };
 
 export default CourtPicker;
