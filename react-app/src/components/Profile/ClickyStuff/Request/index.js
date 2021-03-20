@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { useSelector } from 'react-redux';
 
-import { requestHit } from '../../store/session';
+import { requestHit } from '../../../../services/players';
+import CourtPicker from './CourtPicker'
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -19,9 +20,9 @@ const Request = () => {
         setDate(date);
     };
 
-    const onSubmit = async (e) => {
-        await requestHit(date, user.id, id, courtId);
-    };
+    // const onSubmit = async (e) => {
+    //     await requestHit(date, user.id, id, courtId);
+    // };
 
     return (
         <>
@@ -34,7 +35,7 @@ const Request = () => {
                     dateFormat="Pp"
                 />
                 <CourtPicker/>
-                <div onClick={onSubmit}>Submit</div>
+                {/* <div onClick={onSubmit}>Submit</div> */}
             </form>
         </>
     );

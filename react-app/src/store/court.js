@@ -17,6 +17,18 @@ export const courtCheck = (courtId) => async (dispatch) => {
     dispatch(setCourt(check.added));
 };
 
+export const chooseCourt = (courtId) => async (dispatch) => {
+    const res = await fetch(`/api/courts/${courtId}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const court = await res.json();
+
+    dispatch(setCourt(court))
+};
+
 export default function reducer(state = { court: false }, action) {
     switch (action.type) {
         case COURT:

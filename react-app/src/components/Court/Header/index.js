@@ -10,14 +10,11 @@ import logo from '../../../media/black_logo.png';
 import './Header.css';
 
 const Header = () => {
+    const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-
     const courtAdded = useSelector((state) => state.court.court);
-
     const [court, setCourt] = useState();
-
-    const { id } = useParams();
 
     const removeCourtHandler = async () => {
         await removeCourt(id);

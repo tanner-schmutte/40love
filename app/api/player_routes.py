@@ -19,6 +19,9 @@ def players():
 @login_required
 def get_player(id):
     player = Player.query.get(id)
+
+    print('player', player)
+
     if player:
         return jsonify(player.to_dict())
     else:
@@ -81,4 +84,4 @@ def get_player_courts(id):
     player = Player.query.get(id)
     courts = player.courts
 
-    return jsonify([courts.to_dict() for court in courts])
+    return jsonify([court.to_dict() for court in courts])
