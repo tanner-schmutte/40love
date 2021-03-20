@@ -29,8 +29,11 @@ def get_player(id):
 @login_required
 def set_hit(id):
     player = Player.query.get(id)
+
     form = CreateHitForm()
+
     form['csrf_token'] = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         hit = Hit(
             date=form.data['day_n_time'],

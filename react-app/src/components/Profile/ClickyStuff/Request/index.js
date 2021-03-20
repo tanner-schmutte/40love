@@ -12,15 +12,22 @@ const Request = () => {
         setDate(date);
     };
 
+    const onSubmit = () => {
+        
+    }
+
     return (
         <>
             <div>Request</div>
-            <DatePicker
-                selected={date}
-                onChange={handleDateChange}
-                showTimeSelect
-                dateFormat="Pp"
-            />
+            <form>
+                <DatePicker
+                    selected={date}
+                    onChange={handleDateChange}
+                    showTimeSelect
+                    dateFormat="Pp"
+                />
+                <div onClick={onSubmit}>Submit</div>
+            </form>
         </>
     );
 };
