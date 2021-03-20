@@ -11,6 +11,7 @@
     "google-maps-react": "^2.0.6",
     "http-proxy-middleware": "^1.0.5",
     "mapbox-gl": "^2.0.1",
+    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-datepicker": "^3.6.0",
     "react-dom": "^16.13.1",
