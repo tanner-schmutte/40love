@@ -8,7 +8,7 @@ export const getPlayer = async (playerId) => {
     return await res.json();
 };
 
-export const requestHit = async (date, requesterId, requesteeId, courtId) => {
+export const requestHit = async (date, requesteeId, court_id) => {
     const res = await fetch(`/api/players/${requesteeId}/hits`, {
         method: 'POST',
         headers: {
@@ -16,9 +16,7 @@ export const requestHit = async (date, requesterId, requesteeId, courtId) => {
         },
         body: JSON.stringify({
             date,
-            requesterId,
-            requesteeId,
-            courtId,
+            court_id,
         }),
     });
 

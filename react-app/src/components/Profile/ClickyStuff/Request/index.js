@@ -33,7 +33,6 @@ const Request = () => {
         e.preventDefault();
         await requestHit(
             moment(date).format('YYYY-MM-DD HH:mm:ss'),
-            user.id,
             id,
             courtId
         );

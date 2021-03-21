@@ -71,10 +71,13 @@ def sign_up():
             ntrp=form.data['ntrp'],
             password=form.data['password']
         )
+
         db.session.add(user)
         db.session.commit()
         login_user(user)
+
         return user.to_dict()
+
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 

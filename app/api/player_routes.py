@@ -20,9 +20,6 @@ def players():
 def get_player(id):
     player = Player.query.get(id)
 
-    
-    
-
     if player:
         return jsonify(player.to_dict())
     else:
@@ -38,42 +35,21 @@ def set_hit(id):
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print('route hit')
-    print('----------------------------------------------------------------')
+    if form.validate_on_submit():
+        hit = Hit(
+            date=form.data['date'],
+            player1_id=current_user.id,
+            player2_id=id,
+            court_id=form.data['court_id'],
+        )
+        db.session.add(hit)
+        db.session.commit()
 
-    formValue = json.loads(request.data)
+        return jsonify(hit.to_dict())
+    else:
+        return ({"errors": "errors"})
 
-    print('----------------------------------------------------------------')
-    print(formValue)
-
-    date = formValue['date'],
-    player1_id = formValue['requesterId'],
-    player2_id = formValue['requesteeId'],
-    court_id = formValue['courtId'],
-
-    print(date[0])
-    print(player1_id[0])
-    print(player2_id[0])
-    print(court_id)
-
-    # if form.validate_on_submit():
-    hit = Hit(
-        date=date[0],
-        player1_id=player1_id[0],
-        player2_id=int(player2_id[0]),
-        court_id=int(court_id[0]),
-    )
-
-    print('----------------------------------------------------------------')
-    print('hit', hit)
-    print('----------------------------------------------------------------')
-
-    db.session.add(hit)
-    db.session.commit()
-
-    return jsonify(hit.to_dict())
-# else:
-#     return ({"errors": "errors"})
+    return ({"errors": "errors"})
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])
