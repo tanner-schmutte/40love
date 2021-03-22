@@ -19,7 +19,11 @@ const Request = () => {
     const courtId = useSelector((state) => state.court.court.id);
 
     const handleRequestClick = () => {
-        setRequestClicked(!requestClicked);
+        setRequestClicked(true);
+    };
+
+    const handleCancel = () => {
+        setRequestClicked(false);
     };
 
     const handleDateChange = (date) => {
@@ -27,12 +31,14 @@ const Request = () => {
     };
 
     const onSubmit = async (e) => {
-        e.preventDefault();
-        await requestHit(
-            moment(date).format('YYYY-MM-DD HH:mm:ss'),
-            id,
-            courtId
-        );
+        if (window.confirm('Do you want to request a hit with this player?')) {
+            e.preventDefault();
+            await requestHit(
+                moment(date).format('YYYY-MM-DD HH:mm:ss'),
+                id,
+                courtId
+            );
+        }
     };
 
     return (
@@ -52,6 +58,7 @@ const Request = () => {
                     />
                     <CourtPicker />
                     <button onClick={onSubmit}>Submit</button>
+                    <button onClick={handleCancel}>Cancel</button>
                 </form>
             )}
         </>

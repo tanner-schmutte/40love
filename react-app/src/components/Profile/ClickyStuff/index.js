@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Back from './Back';
 import Request from './Request';
 import LeaveReview from './LeaveReview';
 
