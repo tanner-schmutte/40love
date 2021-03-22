@@ -29,7 +29,6 @@ const CourtPicker = () => {
         <div>
             <div>
                 <label>
-                    Courts
                     <select onChange={handleChange}>
                         <option defaultValue=""></option>
                         {courts &&

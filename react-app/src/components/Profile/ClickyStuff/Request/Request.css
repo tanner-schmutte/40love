@@ -14,3 +14,110 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+#request-hit-button:hover {
+    color: #004cc1;
+}
+
+.request-hit-form {
+    width: 50%;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+
+.request-hit-form-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Helvetica Neue';
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.date-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.date-picker-instructions {
+    font-family: 'Helvetica Neue';
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.react-datepicker__input-container input {
+    background-color: #bbe6c0;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.court-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.court-picker-instructions {
+    font-family: 'Helvetica Neue';
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.submit-cancel-holder {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.request-hit-submit-button {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    color: black;
+    background-color: #bbe6c0;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 10px solid black;
+    padding: 5px;
+    border-radius: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.request-hit-submit-button:hover {
+    color: #21b786;
+}
+
+.request-hit-cancel-button {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    color: black;
+    background-color: #bbe6c0;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 10px solid black;
+    padding: 5px;
+    border-radius: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.request-hit-cancel-button:hover {
+    color: #c04746;
+}
