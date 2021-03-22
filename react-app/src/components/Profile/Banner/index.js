@@ -24,6 +24,14 @@ const Banner = () => {
     return player ? (
         <>
             <nav className="profile-page-header">
+                <div className="profile-page-home-holder">
+                    <button
+                        className="profile-page-home-button"
+                        onClick={() => history.push('/')}
+                    >
+                        Home
+                    </button>
+                </div>
                 <div className="icon-and-username">
                     <img className="player-icon" src={icon} alt="" />
                     <div className="username">{player.username}</div>
