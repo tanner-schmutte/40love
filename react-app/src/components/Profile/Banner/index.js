@@ -23,9 +23,19 @@ const Banner = () => {
 
     return player ? (
         <>
-            <nav className="title">
-                <img className="player-icon" src={icon} alt="" />
-                <div className="username">{player.username}</div>
+            <nav className="profile-page-header">
+                <div className="icon-and-username">
+                    <img className="player-icon" src={icon} alt="" />
+                    <div className="username">{player.username}</div>
+                </div>
+                <div className="profile-page-button-holder">
+                    <button
+                        className="profile-page-back-button"
+                        onClick={() => history.goBack()}
+                    >
+                        Back
+                    </button>
+                </div>
             </nav>
             <div className="ntrp-rating">ntrp: {player.ntrp}</div>
         </>

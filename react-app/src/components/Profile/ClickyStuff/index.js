@@ -9,14 +9,11 @@ import './ClickyStuff.css';
 const ClickyStuff = () => {
     return (
         <>
-            <div className="back">
-                <Back  />
-            </div>
             <div className="request">
-                <Request  />
+                <Request />
             </div>
             <div className="leave-review">
-                <LeaveReview  />
+                <LeaveReview />
             </div>
         </>
     );

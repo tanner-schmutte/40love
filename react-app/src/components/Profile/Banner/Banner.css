@@ -1,4 +1,10 @@
-.title {
+.profile-page-header {
+    border-top: 10px solid black;
+    display: grid;
+    grid-template-columns: 15fr 1fr;
+}
+
+.icon-and-username {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -9,13 +15,31 @@
     height: 150px;
     width: 150px;
     padding: 10px;
-    margin-left: -75px;
 }
 
 .username {
     font-family: 'Optima';
     font-weight: bold;
     font-size: 4rem;
+}
+
+.profile-page-button-holder {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: start;
+}
+
+.profile-page-back-button {
+    color: black;
+    background-color: #21b786;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0; 
 }
 
 .ntrp-rating {

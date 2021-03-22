@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
-
 import moment from 'moment';
 
 import { requestHit } from '../../../../services/players';
@@ -14,16 +13,14 @@ import './Request.css';
 
 const Request = () => {
     const { id } = useParams();
+    const [requestClicked, setRequestClicked] = useState(false);
     const [date, setDate] = useState(new Date());
 
-    const user = useSelector((state) => state.session.user);
     const courtId = useSelector((state) => state.court.court.id);
 
-    console.log('unformatted date', date);
-    console.log('date', moment(date).format('YYYY-MM-DD HH:mm:ss'));
-    console.log('userId', user?.id);
-    console.log('id', id);
-    console.log('courtId', courtId);
+    const handleRequestClick = () => {
+        setRequestClicked(!requestClicked);
+    };
 
     const handleDateChange = (date) => {
         setDate(date);
@@ -40,17 +37,23 @@ const Request = () => {
 
     return (
         <>
-            <div>Request</div>
-            <form>
-                <DatePicker
-                    selected={date}
-                    onChange={handleDateChange}
-                    showTimeSelect
-                    dateFormat="Pp"
-                />
-                <CourtPicker />
-                <button onClick={onSubmit}>Submit</button>
-            </form>
+            {!requestClicked && (
+                <div id="request-hit-button" onClick={handleRequestClick}>
+                    Request a Hit
+                </div>
+            )}
+            {requestClicked && (
+                <form>
+                    <DatePicker
+                        selected={date}
+                        onChange={handleDateChange}
+                        showTimeSelect
+                        dateFormat="Pp"
+                    />
+                    <CourtPicker />
+                    <button onClick={onSubmit}>Submit</button>
+                </form>
+            )}
         </>
     );
 };
