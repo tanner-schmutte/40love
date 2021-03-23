@@ -26,6 +26,15 @@ def get_player(id):
         return ({"error": "error"})
 
 
+@player_routes.route('/<int:id>/courts')
+@login_required
+def get_player_courts(id):
+    player = Player.query.get(id)
+    courts = player.courts
+
+    return jsonify([court.to_dict() for court in courts])
+
+
 @player_routes.route('/<int:id>/hits', methods=['POST'])
 @login_required
 def set_hit(id):
@@ -52,6 +61,16 @@ def set_hit(id):
     return ({"errors": "errors"})
 
 
+@player_routes.route('/<int:id>/hits')
+@login_required
+def get_hit(id):
+    hit = Hit.query.filter(
+            (Hit.player1 == current_user.id and Hit.player2 == id)
+        ).first()
+
+    return jsonify(hit.to_dict())
+
+
 @player_routes.route('/<int:id>/reviews', methods=['POST'])
 @login_required
 def leave_review(id):
@@ -75,12 +94,3 @@ def leave_review(id):
         return jsonify({'errors':
                         validation_errors_to_error_messages(form.errors)
                         }), 401
-
-
-@player_routes.route('/<int:id>/courts')
-@login_required
-def get_player_courts(id):
-    player = Player.query.get(id)
-    courts = player.courts
-
-    return jsonify([court.to_dict() for court in courts])

@@ -2,9 +2,9 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: #bbe6c0;
-    /* padding: 10px; */
     border-bottom: 10px solid black;
     border-top: 10px solid black;
+    padding: 10px;
 }
 
 .logo-container {
@@ -31,8 +31,6 @@
 }
 
 .login-signup {
-    margin-top: 10px;
-    margin-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -44,9 +42,6 @@
     text-decoration: none;
     cursor: pointer;
     margin-left: 50px;
-    /* margin-right: 0px; */
-    /* padding: 6px 6px 6px 6px; */
-    border-radius: 10px;
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -56,7 +51,6 @@
     flex-direction: row;
     justify-content: space-between;
     margin-left: 100px;
-    border-radius: 10px;
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -69,6 +63,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     border: 0;
+    margin-top: -5px;
 }
 
 .banner {
@@ -79,7 +74,6 @@
     background-color: #21b786;
     border: 3px solid black;
     padding-left: 10px;
-    margin-bottom: 10px;
     border-radius: 10px;
 }
 
