@@ -65,10 +65,13 @@ def set_hit(id):
 @login_required
 def get_hit(id):
     hit = Hit.query.filter(
-            (Hit.player1 == current_user.id and Hit.player2 == id)
+            (Hit.player1_id == current_user.id) & (Hit.player2_id == id)
         ).first()
 
-    return jsonify(hit.to_dict())
+    if hit:
+        return ({'requested': True})
+    else:
+        return ({'requested': False})
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])

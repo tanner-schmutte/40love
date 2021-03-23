@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
-import { requestHit } from '../../../../services/players';
+import { checkForHitRequest, requestHit } from '../../../../services/players';
 import CourtPicker from './CourtPicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -13,10 +13,19 @@ import './Request.css';
 
 const Request = () => {
     const { id } = useParams();
+    const [hitRequested, setHitRequested] = useState();
     const [requestClicked, setRequestClicked] = useState(false);
     const [date, setDate] = useState(new Date());
 
     const courtId = useSelector((state) => state.court.court.id);
+
+    useEffect(() => {
+        (async () => {
+            const hitRequest = await checkForHitRequest(id);
+
+            setHitRequested(hitRequest.requested);
+        })();
+    }, [id]);
 
     const handleRequestClick = () => {
         setRequestClicked(true);
@@ -32,18 +41,20 @@ const Request = () => {
 
     const onSubmit = async (e) => {
         if (window.confirm('Do you want to request a hit with this player?')) {
-            e.preventDefault();
             await requestHit(
                 moment(date).format('YYYY-MM-DD HH:mm:ss'),
                 id,
                 courtId
             );
+            setHitRequested(true)
         }
     };
 
+
     return (
         <>
-            {!requestClicked && (
+            {hitRequested && <div className="request-sent-message">Your request has been sent.</div>}
+            {!hitRequested && !requestClicked && (
                 <div id="request-hit-button" onClick={handleRequestClick}>
                     Request a Hit
                 </div>

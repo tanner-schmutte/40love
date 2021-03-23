@@ -28,7 +28,7 @@ function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <i class="fab fa-angellist fa-3x"></i>
+                        <i className="fab fa-angellist fa-3x"></i>
                     </a>
                 </div>
             </div>

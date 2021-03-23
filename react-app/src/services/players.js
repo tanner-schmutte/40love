@@ -8,6 +8,26 @@ export const getPlayer = async (playerId) => {
     return await res.json();
 };
 
+export const getPlayerCourts = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/courts`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};
+
+export const checkForHitRequest = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/hits`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};
+
 export const requestHit = async (date, requesteeId, court_id) => {
     const res = await fetch(`/api/players/${requesteeId}/hits`, {
         method: 'POST',
@@ -18,16 +38,6 @@ export const requestHit = async (date, requesteeId, court_id) => {
             date,
             court_id,
         }),
-    });
-
-    return await res.json();
-};
-
-export const getPlayerCourts = async (playerId) => {
-    const res = await fetch(`/api/players/${playerId}/courts`, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
     });
 
     return await res.json();
