@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { getPlayerCourts } from '../../services/players';
+import { removeCourt } from '../../services/courts';
 
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -12,13 +13,18 @@ const MyCourts = () => {
     const { id } = useParams();
     const [courts, setCourts] = useState();
 
+    const removeCourtHandler = async (e) => {
+        await removeCourt(e.currentTarget.id);
+        const fetchedCourts = await getPlayerCourts(id);
+        setCourts(fetchedCourts);
+    };
+
     useEffect(() => {
         (async () => {
             const fetchedCourts = await getPlayerCourts(id);
-
             setCourts(fetchedCourts);
         })();
-    }, [id]);
+    });
 
     return courts ? (
         <>
@@ -44,11 +50,13 @@ const MyCourts = () => {
                 </div>
             </nav>
             {courts.map((court) => (
-                <div className="my-court-list">
-                    <div className="my-court" key={court.id}>
-                        {court.name}
-                    </div>
-                    <div className="trash-can">
+                <div className="my-court-list" key={court.id}>
+                    <div className="my-court">{court.name}</div>
+                    <div
+                        className="trash-can"
+                        onClick={removeCourtHandler}
+                        id={court.id}
+                    >
                         <FaTrashAlt />
                     </div>
                 </div>
