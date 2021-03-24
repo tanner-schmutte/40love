@@ -25,3 +25,7 @@ select {
     font-weight: bold;
     cursor: pointer;
 }
+
+#ntrp-selector {
+    width: 15px;
+}

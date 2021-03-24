@@ -28,17 +28,15 @@ const CourtPicker = () => {
     return courts ? (
         <div>
             <div>
-                <label>
-                    <select onChange={handleChange}>
-                        <option defaultValue=""></option>
-                        {courts &&
-                            courts.map((court) => (
-                                <option key={court.id} value={court.id}>
-                                    {court.name}
-                                </option>
-                            ))}
-                    </select>
-                </label>
+                <select onChange={handleChange}>
+                    <option defaultValue=""></option>
+                    {courts &&
+                        courts.map((court) => (
+                            <option key={court.id} value={court.id}>
+                                {court.name}
+                            </option>
+                        ))}
+                </select>
             </div>
         </div>
     ) : null;

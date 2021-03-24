@@ -59,7 +59,7 @@ const NtrpDropdown = () => {
             <div className="dropdown">
                 <label>
                     ntrp
-                    <select onChange={handleChange}>
+                    <select id="ntrp-selector" onChange={handleChange}>
                         <option defaultValue=""></option>
                         {ntrpRatings &&
                             ntrpRatings.map((rating) => (

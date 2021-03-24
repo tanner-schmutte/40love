@@ -4,7 +4,12 @@ import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
-import { checkForHitRequest, requestHit } from '../../../../services/players';
+import {
+    checkForHitRequest,
+    requestHit,
+    getPlayer,
+} from '../../../../services/players';
+
 import CourtPicker from './CourtPicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -13,11 +18,21 @@ import './Request.css';
 
 const Request = () => {
     const { id } = useParams();
+    
     const [hitRequested, setHitRequested] = useState();
     const [requestClicked, setRequestClicked] = useState(false);
     const [date, setDate] = useState(new Date());
+    const [player, setPlayer] = useState();
 
-    const courtId = useSelector((state) => state.court.court.id);
+    const court = useSelector((state) => state.court.court);
+
+    useEffect(() => {
+        (async () => {
+            const query = await getPlayer(id);
+
+            setPlayer(query);
+        })();
+    }, [id]);
 
     useEffect(() => {
         (async () => {
@@ -40,20 +55,27 @@ const Request = () => {
     };
 
     const onSubmit = async (e) => {
-        if (window.confirm('Do you want to request a hit with this player?')) {
+        if (
+            window.confirm(
+                `Do you want to request a hit with ${player.username} on ${moment(date).format('MM-DD-YYYY HH:mm')} at ${court.name} Tennis Courts?`
+            )
+        ) {
             await requestHit(
                 moment(date).format('YYYY-MM-DD HH:mm:ss'),
                 id,
-                courtId
+                court.id
             );
-            setHitRequested(true)
+            setHitRequested(true);
         }
     };
 
-
     return (
         <>
-            {hitRequested && <div className="request-sent-message">Your request has been sent.</div>}
+            {hitRequested && (
+                <div className="request-sent-message">
+                    Your request has been sent.
+                </div>
+            )}
             {!hitRequested && !requestClicked && (
                 <div id="request-hit-button" onClick={handleRequestClick}>
                     Request a Hit

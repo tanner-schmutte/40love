@@ -47,6 +47,7 @@ export default function Map() {
                         courts.map((court) => (
                             <Marker
                                 id={court.id}
+                                key={court.id}
                                 lat={court.latitude}
                                 lng={court.longitude}
                                 name={court.name}

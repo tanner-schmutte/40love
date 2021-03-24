@@ -7,6 +7,14 @@
     padding: 10px;
 }
 
+#home-page-dropdown {
+    width: 15px;
+}
+
+#home-page-dropdown:hover {
+    color: #21b786;
+}
+
 .logo-container {
     display: flex;
     flex-direction: row;
@@ -98,7 +106,7 @@
     .authenticated {
         margin-top: 0px;
         margin-left: 50px;
-        font-size: .9rem;
+        font-size: 0.9rem;
     }
     .authenticated button {
         margin-left: 15px;
@@ -122,7 +130,7 @@
         margin-right: 0px;
     }
     .authenticated {
-        font-size: .7rem;
+        font-size: 0.7rem;
         margin-left: 10px;
     }
     .banner {
