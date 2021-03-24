@@ -1,0 +1,93 @@
+.my-courts-nav {
+    border-top: 10px solid black;
+    display: grid;
+    grid-template-columns: 1fr 15fr 1fr;
+    margin-bottom: 20px;
+}
+
+.my-courts-home-holder {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.my-courts-home {
+    color: black;
+    background-color: #21b786;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+    font-family: 'Helvetica Neue';
+
+}
+
+.my-courts-title-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-courts-title {
+    font-family: 'Optima';
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.my-courts-back-holder {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.my-courts-back {
+    color: black;
+    background-color: #21b786;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+    font-family: 'Helvetica Neue';
+
+}
+
+.my-court-list {
+    display: flex;
+    justify-content: center;
+}
+
+.my-court {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    color: black;
+    background-color: #bbe6c0;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 10px solid black;
+    padding: 15px;
+    border-radius: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.trash-can {
+    position: relative;
+    top: 34px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.trash-can:hover {
+    color: #c04746;
+}

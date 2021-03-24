@@ -19,13 +19,13 @@ const NavBar = () => {
             history.push(`/players/${user.id}`);
         }
         if (e.target.value === 'courts') {
-            history.push(`/players/${user.id}`);
+            history.push(`/players/${user.id}/courts`);
         }
         if (e.target.value === 'hits') {
-            history.push(`/players/${user.id}`);
+            history.push(`/players/${user.id}/hits`);
         }
         if (e.target.value === 'requests') {
-            history.push(`/players/${user.id}`);
+            history.push(`/players/${user.id}/requests`);
         }
     };
 

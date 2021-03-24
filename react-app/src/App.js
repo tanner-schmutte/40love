@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Home from './components/Home';
 import Court from './components/Court';
 import Profile from './components/Profile';
+import MyCourts from './components/MyCourts'
 
 function App() {
     const dispatch = useDispatch();
@@ -38,11 +39,14 @@ function App() {
                 <Route path="/signup" exact={true}>
                     <SignUpForm />
                 </Route>
-                <Route path="/courts/:id">
+                <Route path="/courts/:id" exact={true}>
                     <Court />
                 </Route>
-                <Route path="/players/:id">
+                <Route path="/players/:id" exact={true}>
                     <Profile />
+                </Route>
+                <Route path="/players/:id/courts" exact={true}>
+                    <MyCourts />
                 </Route>
 
                 {/* <ProtectedRoute
