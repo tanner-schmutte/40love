@@ -10,6 +10,7 @@
     height: 150px;
     width: 150px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .court-info {

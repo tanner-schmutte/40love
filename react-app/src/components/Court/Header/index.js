@@ -35,7 +35,10 @@ const Header = () => {
 
     return court ? (
         <nav className="header">
-            <div className="logo-court-container">
+            <div
+                className="logo-court-container"
+                onClick={() => history.push('/')}
+            >
                 <img className="logo-court" src={logo} alt="" />
             </div>
             <div className="court-info">
