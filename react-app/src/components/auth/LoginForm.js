@@ -34,6 +34,11 @@ const LoginForm = () => {
         });
     };
 
+    const demoLogin = async (e) => {
+        e.preventDefault();
+        dispatch(login('demo_user', 'password'))
+    }
+
     const updateUsername = (e) => {
         setUsername(e.target.value);
     };
@@ -81,6 +86,7 @@ const LoginForm = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={onLogin}>Login</Button>
+                    <Button onClick={demoLogin}>Demo</Button>
                 </DialogActions>
             </Dialog>
         </>

@@ -6,6 +6,7 @@ from app.models import db, Player
 def seed_users():
 
     seed = [
+        Player(username='demo_user', ntrp='4.5', password='password'),
         Player(username='Roger_Federer', ntrp='7.0', password='password'),
         Player(username='Rafa_Nadal', ntrp='7.0', password='password'),
         Player(username='Novak_Djokovic', ntrp='7.0', password='password'),
