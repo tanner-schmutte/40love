@@ -6,7 +6,7 @@ from app.models import db, Request
 request_routes = Blueprint('requests', __name__)
 
 
-@hit_routes.route('/<int:id>', methods=['DELETE'])
+@request_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_request(id):
     request = Request.query.get(id)
