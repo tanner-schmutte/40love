@@ -35,26 +35,26 @@ def get_player_courts(id):
     return jsonify([court.to_dict() for court in courts])
 
 
-@player_routes.route('/<int:id>/hits', methods=['POST'])
+@player_routes.route('/<int:id>/requests', methods=['POST'])
 @login_required
-def set_hit(id):
+def make_request(id):
     player = Player.query.get(id)
 
-    form = CreateHitForm()
+    form = RequestForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        hit = Hit(
+        request = Request(
             date=form.data['date'],
             player1_id=current_user.id,
             player2_id=id,
             court_id=form.data['court_id'],
         )
-        db.session.add(hit)
+        db.session.add(request)
         db.session.commit()
 
-        return jsonify(hit.to_dict())
+        return jsonify(request.to_dict())
     else:
         return ({"errors": "errors"})
 
@@ -64,11 +64,12 @@ def set_hit(id):
 @player_routes.route('/<int:id>/hits')
 @login_required
 def get_hit(id):
-    hit = Hit.query.filter(
-            (Hit.player1_id == current_user.id) & (Hit.player2_id == id)
+    request = Request.query.filter(
+            (Request.requester_id == current_user.id) &
+            (Request.requestee_id == id)
         ).first()
 
-    if hit:
+    if request:
         return ({'requested': True})
     else:
         return ({'requested': False})
@@ -77,27 +78,31 @@ def get_hit(id):
 @player_routes.route('/<int:id>/requests/received')
 @login_required
 def get_requests_received(id):
-    hits = Hit.query.filter(Hit.player2_id == id).all()
+    requests = Request.query.filter(Request.requestee_id == id).all()
 
-    return jsonify([hit.to_dict() for hit in hits])
+    return jsonify([request.to_dict() for request in requests])
 
 
 @player_routes.route('/<int:id>/requests/sent')
 @login_required
 def get_requests_sent(id):
-    hits = Hit.query.filter(Hit.player1_id == id).all()
+    requests = Request.query.filter(Request.requester_id == id).all()
 
-    return jsonify([hit.to_dict() for hit in hits])
+    return jsonify([request.to_dict() for request in requests])
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])
 @login_required
 def leave_review(id):
     player = Player.query.get(id)
+
     hit = Hit.query.filter((player1_id == id and player2_id == current_user) or
                            (player2_id == id and player1_id == current_user)).all()
-    form = CreateReviewForm()
+
+    form = ReviewForm()
+
     form['csrf_token'] = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         review = Review(
             rating=form.data['stars'],

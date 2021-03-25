@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import Hit, Court
 
 
-class CreateHitForm(FlaskForm):
+class RequestForm(FlaskForm):
     date = DateTimeField("Date", validators=[DataRequired()])
 
     court_id = SelectField("Court", validators=[DataRequired()],

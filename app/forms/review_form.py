@@ -4,7 +4,7 @@ from wtforms import SelectField, StringField
 from wtforms.validators import DataRequired
 
 
-class CreateReviewForm(FlaskForm):
+class ReviewForm(FlaskForm):
     stars = SelectField("Stars", validators=[DataRequired()],
                         choices=[x/2 for x in range(11)])
 

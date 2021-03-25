@@ -29,7 +29,7 @@ export const checkForHitRequest = async (playerId) => {
 };
 
 export const requestHit = async (date, requesteeId, court_id) => {
-    const res = await fetch(`/api/players/${requesteeId}/hits`, {
+    const res = await fetch(`/api/players/${requesteeId}/requests`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
