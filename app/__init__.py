@@ -9,6 +9,7 @@ from .models import db, Player
 from .api.auth_routes import auth_routes
 from .api.player_routes import player_routes
 from .api.court_routes import court_routes
+from .api.request_routes import request_routes
 from .api.hit_routes import hit_routes
 from .api.review_routes import review_routes
 
@@ -35,6 +36,7 @@ app.config.from_object(Config)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(player_routes, url_prefix='/api/players')
 app.register_blueprint(court_routes, url_prefix='/api/courts')
+app.register_blueprint(request_routes, url_prefix='/api/requests')
 app.register_blueprint(hit_routes, url_prefix='/api/hits')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 db.init_app(app)
