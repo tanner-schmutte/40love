@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, json
 from flask_login import login_required, current_user
 
 from app.models import db, Player, Court, Hit
-from app.forms import CreateHitForm, CreateReviewForm
+from app.forms import RequestForm, ReviewForm
 
 
 player_routes = Blueprint('players', __name__)
