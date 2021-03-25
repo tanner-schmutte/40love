@@ -3,21 +3,24 @@ from .db import db
 
 class Review(db.Model):
     __tablename__ = "reviews"
+
     id = db.Column(db.Integer, primary_key=True)
+
     rating = db.Column(db.Integer, nullable=False)
-    comment = db.Column(db.String(255), nullable=False)
+
+    comment = db.Column(db.String(255), nullable=True)
 
     hit_id = db.Column(db.Integer, db.ForeignKey("hits.id"), nullable=False)
 
-    reviewer = db.Column(db.Integer, db.ForeignKey("players.id"),
-                         nullable=False)
+    reviewer_id = db.Column(db.Integer, db.ForeignKey("players.id"),
+                            nullable=False)
 
-    reviewee = db.Column(db.Integer, db.ForeignKey("players.id"),
-                         nullable=False)
+    reviewee_id = db.Column(db.Integer, db.ForeignKey("players.id"),
+                            nullable=False)
 
     hit = db.relationship("Hit")
-    player1 = db.relationship("Player", foreign_keys="Review.reviewer")
-    player2 = db.relationship("Player", foreign_keys="Review.reviewee")
+    reviewer = db.relationship("Player", foreign_keys="Review.reviewer_id")
+    reviewer = db.relationship("Player", foreign_keys="Review.reviewee_id")
 
     def to_dict(self):
         return {
@@ -25,6 +28,6 @@ class Review(db.Model):
             "rating": self.rating,
             "comment": self.comment,
             "hit": self.hit_id,
-            "reviewer": self.reviewer,
-            "reviewee": self.reviewee
+            "reviewer": self.reviewer_id,
+            "reviewee": self.reviewee_id
         }

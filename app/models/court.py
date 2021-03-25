@@ -12,6 +12,8 @@ class Court(db.Model):
     longitude = db.Column(db.Numeric(10, 7), nullable=False)
 
     players = db.relationship("Player", secondary=Players_Courts)
+    request = db.relationship("Request")
+    hit = db.relationship("Hit")
 
     def to_dict(self):
         return {

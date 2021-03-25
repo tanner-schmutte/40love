@@ -14,11 +14,14 @@ class Player(db.Model, UserMixin):
 
     courts = db.relationship("Court", secondary=Players_Courts)
 
-    hit1 = db.relationship("Hit", foreign_keys="Hit.player1_id")
-    hit2 = db.relationship("Hit", foreign_keys="Hit.player2_id")
+    requester = db.relationship("Request", foreign_keys="Request.requester_id")
+    requestee = db.relationship("Request", foreign_keys="Request.requestee_id")
 
-    reviewer = db.relationship("Review", foreign_keys="Review.reviewer")
-    reviewee = db.relationship("Review", foreign_keys="Review.reviewee")
+    player1 = db.relationship("Hit", foreign_keys="Hit.player1_id")
+    player2 = db.relationship("Hit", foreign_keys="Hit.player2_id")
+
+    reviewer = db.relationship("Review", foreign_keys="Review.reviewer_id")
+    reviewee = db.relationship("Review", foreign_keys="Review.reviewee_id")
 
     @property
     def password(self):

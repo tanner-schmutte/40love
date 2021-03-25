@@ -17,6 +17,8 @@ class Request(db.Model):
     court_id = db.Column(db.Integer, db.ForeignKey("courts.id"),
                          nullable=False)
 
+    response = db.Column(db.Boolean, nullable=True)
+
     requester = db.relationship("Player", foreign_keys="Request.requester_id")
     requestee = db.relationship("Player", foreign_keys="Request.requestee_id")
     court = db.relationship("Court")
@@ -28,4 +30,5 @@ class Request(db.Model):
             "requester": self.requester_id,
             "requestee": self.requestee_id,
             "court": self.court_id,
+            "response": self.response
         }
