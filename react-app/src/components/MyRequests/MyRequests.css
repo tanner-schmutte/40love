@@ -1,0 +1,78 @@
+.my-requests-nav {
+    border-top: 10px solid black;
+    display: grid;
+    grid-template-columns: 1fr 15fr 1fr;
+    margin-bottom: 20px;
+}
+
+.my-requests-home-holder {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.my-requests-home {
+    color: black;
+    background-color: #21b786;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+    font-family: 'Helvetica Neue';
+
+}
+
+.my-requests-title-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-requests-title {
+    font-family: 'Optima';
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.my-requests-back-holder {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.my-requests-back {
+    color: black;
+    background-color: #21b786;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+    font-family: 'Helvetica Neue';
+
+}
+
+.my-requests-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.my-requests-received {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.my-requests-sent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px
+}

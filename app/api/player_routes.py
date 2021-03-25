@@ -74,6 +74,22 @@ def get_hit(id):
         return ({'requested': False})
 
 
+@player_routes.route('/<int:id>/requests/received')
+@login_required
+def get_requests_received(id):
+    hits = Hit.query.filter(Hit.player2_id == id).all()
+
+    return jsonify([hit.to_dict() for hit in hits])
+
+
+@player_routes.route('/<int:id>/requests/sent')
+@login_required
+def get_requests_sent(id):
+    hits = Hit.query.filter(Hit.player1_id == id).all()
+
+    return jsonify([hit.to_dict() for hit in hits])
+
+
 @player_routes.route('/<int:id>/reviews', methods=['POST'])
 @login_required
 def leave_review(id):
