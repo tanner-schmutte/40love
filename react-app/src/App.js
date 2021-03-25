@@ -11,7 +11,9 @@ import { authenticate } from './store/session';
 import Home from './components/Home';
 import Court from './components/Court';
 import Profile from './components/Profile';
-import MyCourts from './components/MyCourts'
+import MyCourts from './components/MyCourts';
+import MyHits from './components/MyHits';
+import MyRequests from './components/MyRequests';
 
 function App() {
     const dispatch = useDispatch();
@@ -47,6 +49,12 @@ function App() {
                 </Route>
                 <Route path="/players/:id/courts" exact={true}>
                     <MyCourts />
+                </Route>
+                <Route path="/players/:id/hits" exact={true}>
+                    <MyHits />
+                </Route>
+                <Route path="/players/:id/requests" exact={true}>
+                    <MyRequests />
                 </Route>
 
                 {/* <ProtectedRoute
