@@ -49,7 +49,7 @@ const MyCourts = () => {
                     </div>
                 </div>
             </nav>
-            {courts.map((court) => (
+            {courts && courts.map((court) => (
                 <div className="my-court-list" key={court.id}>
                     <div className="my-court">{court.name}</div>
                     <div

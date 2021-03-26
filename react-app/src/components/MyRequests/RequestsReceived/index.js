@@ -1,16 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+import { getRequestsReceived } from '../../../services/players';
+
+import Username from './Username';
+
+import './RequestsReceived.css';
 
 const RequestsReceived = () => {
-    const history = useHistory();
     const { id } = useParams();
     const [requests, setRequests] = useState();
 
-    return (
+    useEffect(() => {
+        (async () => {
+            const fetchedReqs = await getRequestsReceived(id);
+            setRequests(fetchedReqs);
+        })();
+    }, [id]);
+
+    return requests ? (
         <>
-            <div>Received</div>
+            <div className="recs-recd">
+                Received
+                {requests &&
+                    requests.map((request) => (
+                        <div className="my-reqs-recd-list" key={request.id}>
+                            <div className="my-reqs-recd">
+                                <Username requester={request.requester}/>
+                            </div>
+                        </div>
+                    ))}
+            </div>
         </>
-    );
+    ) : null;
 };
 
 export default RequestsReceived;

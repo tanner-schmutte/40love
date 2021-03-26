@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, request, json
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
-from app.models import db, Player, Court, Hit
+from app.models import db, Player, Court, Request
 from app.forms import RequestForm, ReviewForm
 
 
@@ -37,7 +37,7 @@ def get_player_courts(id):
 
 @player_routes.route('/<int:id>/requests', methods=['POST'])
 @login_required
-def make_request(id):
+def make_hit_request(id):
     player = Player.query.get(id)
 
     form = RequestForm()
@@ -45,31 +45,32 @@ def make_request(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        request = Request(
+        hit_request = Request(
             date=form.data['date'],
-            player1_id=current_user.id,
-            player2_id=id,
+            requester_id=current_user.id,
+            requestee_id=id,
             court_id=form.data['court_id'],
+            response=None
         )
-        db.session.add(request)
+        db.session.add(hit_request)
         db.session.commit()
 
-        return jsonify(request.to_dict())
+        return jsonify(hit_request.to_dict())
     else:
         return ({"errors": "errors"})
 
     return ({"errors": "errors"})
 
 
-@player_routes.route('/<int:id>/hits')
+@player_routes.route('/<int:id>/requests')
 @login_required
-def get_hit(id):
-    request = Request.query.filter(
+def get_hit_request(id):
+    hit_request = Request.query.filter(
             (Request.requester_id == current_user.id) &
             (Request.requestee_id == id)
         ).first()
 
-    if request:
+    if hit_request:
         return ({'requested': True})
     else:
         return ({'requested': False})
@@ -78,17 +79,17 @@ def get_hit(id):
 @player_routes.route('/<int:id>/requests/received')
 @login_required
 def get_requests_received(id):
-    requests = Request.query.filter(Request.requestee_id == id).all()
+    hit_requests = Request.query.filter(Request.requestee_id == id).all()
 
-    return jsonify([request.to_dict() for request in requests])
+    return jsonify([hit_request.to_dict() for hit_request in hit_requests])
 
 
 @player_routes.route('/<int:id>/requests/sent')
 @login_required
 def get_requests_sent(id):
-    requests = Request.query.filter(Request.requester_id == id).all()
+    hit_requests = Request.query.filter(Request.requester_id == id).all()
 
-    return jsonify([request.to_dict() for request in requests])
+    return jsonify([hit_request.to_dict() for hit_request in hit_requests])
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])

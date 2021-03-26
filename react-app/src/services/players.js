@@ -19,7 +19,7 @@ export const getPlayerCourts = async (playerId) => {
 };
 
 export const checkForHitRequest = async (playerId) => {
-    const res = await fetch(`/api/players/${playerId}/hits`, {
+    const res = await fetch(`/api/players/${playerId}/requests`, {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -38,6 +38,26 @@ export const requestHit = async (date, requesteeId, court_id) => {
             date,
             court_id,
         }),
+    });
+
+    return await res.json();
+};
+
+export const getRequestsReceived = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/requests/received`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};
+
+export const getRequestsSent = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/requests/sent`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
 
     return await res.json();
