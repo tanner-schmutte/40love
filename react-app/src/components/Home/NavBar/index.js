@@ -15,17 +15,17 @@ const NavBar = () => {
     };
 
     const handleChange = (e) => {
-        if (e.target.value === 'profile') {
-            history.push(`/players/${user.id}`);
-        }
         if (e.target.value === 'courts') {
             history.push(`/players/${user.id}/courts`);
+        }
+        if (e.target.value === 'requests') {
+            history.push(`/players/${user.id}/requests`);
         }
         if (e.target.value === 'hits') {
             history.push(`/players/${user.id}/hits`);
         }
-        if (e.target.value === 'requests') {
-            history.push(`/players/${user.id}/requests`);
+        if (e.target.value === 'profile') {
+            history.push(`/players/${user.id}`);
         }
     };
 
@@ -70,17 +70,17 @@ const NavBar = () => {
                                 onChange={handleChange}
                             >
                                 <option defaultValue=""></option>
-                                <option value="profile" key="profile">
-                                    My Profile
-                                </option>
                                 <option value="courts" key="courts">
                                     My Courts
+                                </option>
+                                <option value="requests" key="requests">
+                                    My Requests
                                 </option>
                                 <option value="hits" key="hits">
                                     My Hits
                                 </option>
-                                <option value="requests" key="requests">
-                                    My Requests
+                                <option value="profile" key="profile">
+                                    My Profile
                                 </option>
                             </select>
                         </div>
