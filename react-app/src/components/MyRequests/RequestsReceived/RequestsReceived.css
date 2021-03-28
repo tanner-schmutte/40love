@@ -1,20 +1,34 @@
-.my-reqs-recd-list {
+.reqs-recd {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
+}
+
+.received-title {
+    text-decoration: underline;
+    font-family: 'Optima';
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .my-reqs-recd {
     display: flex;
-    justify-content: center;
-    width: 400px;
+    flex-direction: column;
+    width: 300px;
     color: black;
     background-color: #bbe6c0;
-    text-decoration: none;
-    font-size: 1.4rem;
     font-weight: bold;
     border: 10px solid black;
     padding: 15px;
     border-radius: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.my-reqs-recd-date {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

@@ -67,12 +67,12 @@
 
 .my-requests-received {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+    justify-content: center;
+    margin-left: 200px;
 }
 
 .my-requests-sent {
     display: flex;
-    flex-direction: column;
-    margin-left: 10px
+    justify-content: center;
+    margin-right: 200px;
 }

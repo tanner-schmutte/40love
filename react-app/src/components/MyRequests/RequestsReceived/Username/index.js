@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { getPlayer } from '../../../../services/players';
 
+import './Username.css'
+
 const Username = ({ requester }) => {
     const [player, setPlayer] = useState();
 
@@ -13,7 +15,7 @@ const Username = ({ requester }) => {
         })();
     }, [requester]);
 
-    return player ? <div>{player.username}</div> : null;
+    return player ? <div className="my-reqs-recd-username">{player.username}</div> : null;
 };
 
 export default Username;
