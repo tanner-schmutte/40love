@@ -32,3 +32,20 @@
     justify-content: center;
     margin-top: 10px;
 }
+
+.my-reqs-recd-res {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.my-reqs-recd-no:hover {
+    color: #c04746;
+}
+
+.my-reqs-recd-yes:hover {
+    color: #21b786;
+}

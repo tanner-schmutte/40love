@@ -6,6 +6,8 @@ import { getRequestsReceived } from '../../../services/players';
 import Username from './Username';
 import Court from './Court';
 
+import { FaCheck, FaTimes } from 'react-icons/fa';
+
 import './RequestsReceived.css';
 
 const RequestsReceived = () => {
@@ -30,6 +32,14 @@ const RequestsReceived = () => {
                             <Court courtId={request.court} />
                             <div className="my-reqs-recd-date">
                                 {request.date}
+                            </div>
+                            <div className="my-reqs-recd-res">
+                                <div className="my-reqs-recd-no">
+                                    <FaTimes />
+                                </div>
+                                <div className="my-reqs-recd-yes">
+                                    <FaCheck />
+                                </div>
                             </div>
                         </div>
                     ))}
