@@ -1,7 +1,7 @@
 .profile-page-header {
     border-top: 10px solid black;
     display: grid;
-    grid-template-columns: 1fr 15fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
 }
 
 .icon-and-username {
@@ -12,8 +12,8 @@
 }
 
 .player-icon {
-    height: 150px;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     padding: 10px;
 }
 

@@ -53,17 +53,17 @@ const Header = () => {
                             Remove Courts
                         </button>
                     </div>
-                    <div className="back-to-home-button">
-                        <button onClick={() => history.push('/')}>
-                            Back to Map
+                    <div className="back-button">
+                        <button onClick={() => history.goBack()}>
+                            Back
                         </button>
                     </div>
                 </div>
             )}
             {!courtAdded && (
-                <div className="back-to-home-button">
-                    <button onClick={() => history.push('/')}>
-                        Back to Map
+                <div className="back-button">
+                    <button onClick={() => history.goBack()}>
+                        Back
                     </button>
                 </div>
             )}

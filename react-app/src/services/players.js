@@ -62,3 +62,58 @@ export const getRequestsSent = async (playerId) => {
 
     return await res.json();
 };
+
+export const acceptRequest = async (playerId, hitId) => {
+    await fetch(`/api/players/${playerId}/requests/received/${hitId}/accept`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const post = await fetch(
+        `/api/players/${playerId}/requests/received/${hitId}/accept`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    return await post.json();
+};
+
+export const declineRequest = async (playerId, hitId) => {
+    const res = await fetch(
+        `/api/players/${playerId}/requests/received/${hitId}/decline`,
+        {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    return await res.json();
+};
+
+export const getHitsRequester = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/hits/requester`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};
+
+export const getHitsRequestee = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/hits/requestee`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};

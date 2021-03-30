@@ -3,7 +3,11 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { getPlayer } from '../../../services/players';
 
+import logo from '../../../media/black_logo.png';
 import icon from '../../../media/player_icon_black.png';
+
+import { FaUserAlt } from 'react-icons/fa';
+
 
 import './Banner.css';
 
@@ -21,28 +25,61 @@ const Banner = () => {
         })();
     }, [id]);
 
+    const handleChange = (e) => {
+        if (e.target.value === 'courts') {
+            history.push(`/players/${id}/courts`);
+        }
+        if (e.target.value === 'requests') {
+            history.push(`/players/${id}/requests`);
+        }
+        if (e.target.value === 'hits') {
+            history.push(`/players/${id}/hits/`);
+        }
+        if (e.target.value === 'home') {
+            history.push('/');
+        }
+        if (e.target.value === 'back') {
+            history.goBack();
+        }
+    };
+
     return player ? (
         <>
             <nav className="profile-page-header">
                 <div className="profile-page-home-holder">
-                    <button
+                    <div
                         className="profile-page-home-button"
                         onClick={() => history.push('/')}
                     >
-                        Home
-                    </button>
+                        <img className="logo" src={logo} alt="" />
+                    </div>
                 </div>
                 <div className="icon-and-username">
                     <img className="player-icon" src={icon} alt="" />
                     <div className="username">{player.username}</div>
                 </div>
                 <div className="profile-page-button-holder">
-                    <button
-                        className="profile-page-back-button"
-                        onClick={() => history.goBack()}
-                    >
-                        Back
-                    </button>
+                <div className="user-icon">
+                        <FaUserAlt />
+                    </div>
+                    <select id="courts-page-dropdown" onChange={handleChange}>
+                        <option defaultValue=""></option>
+                        <option value="back" key="back">
+                            Back
+                        </option>
+                        <option value="courts" key="courts">
+                            My Courts
+                        </option>
+                        <option value="requests" key="requests">
+                            My Requests
+                        </option>
+                        <option value="hits" key="hits">
+                            My Hits
+                        </option>
+                        <option value="home" key="home">
+                            Home
+                        </option>
+                    </select>
                 </div>
             </nav>
             <div className="ntrp-rating">ntrp: {player.ntrp}</div>

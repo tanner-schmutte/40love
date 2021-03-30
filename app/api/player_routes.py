@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
-from app.models import db, Player, Court, Request
+from app.models import db, Player, Court, Request, Hit
 from app.forms import RequestForm, ReviewForm
 
 
@@ -79,7 +79,8 @@ def get_hit_request(id):
 @player_routes.route('/<int:id>/requests/received')
 @login_required
 def get_requests_received(id):
-    hit_requests = Request.query.filter(Request.requestee_id == id).all()
+    hit_requests = Request.query.filter((Request.requestee_id == id) &
+                                        (Request.response == None)).all()
 
     return jsonify([hit_request.to_dict() for hit_request in hit_requests])
 
@@ -90,6 +91,58 @@ def get_requests_sent(id):
     hit_requests = Request.query.filter(Request.requester_id == id).all()
 
     return jsonify([hit_request.to_dict() for hit_request in hit_requests])
+
+
+@player_routes.route('/<int:id>/requests/received/<int:hit_id>/accept',
+                     methods=['PATCH', 'POST'])
+@login_required
+def accept_request(id, hit_id):
+
+    hit_request = Request.query.get(hit_id)
+
+    if request.method == 'PATCH':
+        hit_request.response = True
+
+    if request.method == 'POST':
+        hit = Hit(
+            date=hit_request.date,
+            player1_id=hit_request.requester_id,
+            player2_id=hit_request.requestee_id,
+            court_id=hit_request.court_id
+        )
+        db.session.add(hit)
+
+    db.session.commit()
+
+    return jsonify(hit_request.to_dict())
+
+
+@player_routes.route('/<int:id>/requests/received/<int:hit_id>/decline',
+                     methods=['PATCH'])
+@login_required
+def decline_request(id, hit_id):
+    hit_request = Request.query.get(hit_id)
+    hit_request.response = False
+
+    db.session.commit()
+
+    return jsonify(hit_request.to_dict())
+
+
+@player_routes.route('/<int:id>/hits/requester')
+@login_required
+def get_hits_as_requester(id):
+    hits = Hit.query.filter(Hit.player1_id == id).all()
+
+    return jsonify([hit.to_dict() for hit in hits])
+
+
+@player_routes.route('/<int:id>/hits/requestee')
+@login_required
+def get_hits_as_requestee(id):
+    hits = Hit.query.filter(Hit.player2_id == id).all()
+
+    return jsonify([hit.to_dict() for hit in hits])
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])

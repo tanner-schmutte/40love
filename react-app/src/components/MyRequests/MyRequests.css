@@ -1,8 +1,7 @@
 .my-requests-nav {
     border-top: 10px solid black;
     display: grid;
-    grid-template-columns: 1fr 15fr 1fr;
-    margin-bottom: 20px;
+    grid-template-columns: 1fr 5fr 1fr;
 }
 
 .my-requests-home-holder {
@@ -37,6 +36,7 @@
     font-family: 'Optima';
     font-weight: bold;
     font-size: 4rem;
+    text-decoration: underline;
 }
 
 .my-requests-back-holder {

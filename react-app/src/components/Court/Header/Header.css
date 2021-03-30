@@ -43,7 +43,7 @@
     justify-content: space-between;
 }
 
-.back-to-home-button {
+.back-button {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -51,7 +51,7 @@
     margin-right: 10px;
 }
 
-.back-to-home-button button {
+.back-button button {
     color: black;
     background-color: #bbe6c0;
     text-decoration: none;

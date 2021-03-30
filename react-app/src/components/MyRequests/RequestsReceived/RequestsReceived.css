@@ -44,8 +44,10 @@
 
 .my-reqs-recd-no:hover {
     color: #c04746;
+    cursor: pointer;
 }
 
 .my-reqs-recd-yes:hover {
     color: #21b786;
+    cursor: pointer;
 }
