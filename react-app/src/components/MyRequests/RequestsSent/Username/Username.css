@@ -2,5 +2,9 @@
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
+    cursor: pointer;
+}
 
+.my-reqs-sent-username:hover {
+    color: #004cc1;
 }

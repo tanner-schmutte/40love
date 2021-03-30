@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { getPlayer } from '../../../../services/players';
 
 import './Username.css';
 
 const Username = ({ requestee }) => {
+    const history = useHistory();
+
     const [player, setPlayer] = useState();
 
     useEffect(() => {
@@ -16,7 +19,12 @@ const Username = ({ requestee }) => {
     }, [requestee]);
 
     return player ? (
-        <div className="my-reqs-sent-username">{player.username}</div>
+        <div
+            className="my-reqs-sent-username"
+            onClick={() => history.push(`/players/${requestee}`)}
+        >
+            {player.username}
+        </div>
     ) : null;
 };
 

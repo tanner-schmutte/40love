@@ -3,4 +3,9 @@
     justify-content: center;
     margin-top: 10px;
     font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.my-hits-court:hover {
+    color: #004cc1;
 }

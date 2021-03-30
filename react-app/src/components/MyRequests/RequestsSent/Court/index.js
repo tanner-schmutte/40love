@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { getCourt } from '../../../../services/courts';
 
 import './Court.css';
 
 const Court = ({ courtId }) => {
+    const history = useHistory();
     const [court, setCourt] = useState();
 
     useEffect(() => {
@@ -15,7 +17,14 @@ const Court = ({ courtId }) => {
         })();
     }, [courtId]);
 
-    return court ? <div className="my-reqs-sent-court">@{court.name}</div> : null;
+    return court ? (
+        <div
+            className="my-reqs-sent-court"
+            onClick={() => history.push(`/courts/${courtId}`)}
+        >
+            @{court.name}
+        </div>
+    ) : null;
 };
 
 export default Court;
