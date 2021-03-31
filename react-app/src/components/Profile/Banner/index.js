@@ -38,6 +38,9 @@ const Banner = () => {
         if (e.target.value === 'hits') {
             history.push(`/players/${user.id}/hits/`);
         }
+        if (e.target.value === 'profile') {
+            history.push(`/players/${user.id}/`);
+        }
         if (e.target.value === 'home') {
             history.push('/');
         }
@@ -78,6 +81,9 @@ const Banner = () => {
                         </option>
                         <option value="hits" key="hits">
                             My Hits
+                        </option>
+                        <option value="profile" key="profile">
+                            My Profile
                         </option>
                         <option value="home" key="home">
                             Home
