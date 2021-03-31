@@ -20,6 +20,12 @@ def seed_users():
         Player(username='Maria_Sharapova', ntrp='7.0', password='password'),
         Player(username='Nick_Kyrgios', ntrp='7.0', password='password'),
         Player(username='LeBron_James', ntrp='3.5', password='password'),
+        Player(username='Venus_Williams', ntrp='7.0', password='password'),
+        Player(username='Tiger_Woods', ntrp='4.5', password='password'),
+        Player(username='Peter_Pan', ntrp='3.0', password='password'),
+        Player(username='Captain_Hook', ntrp='3.5', password='password'),
+        Player(username='Tinker_Bell', ntrp='2.0', password='password'),
+        Player(username='Napolean_Dynamite', ntrp='1.5', password='password'),
     ]
 
     db.session.add_all(seed)
