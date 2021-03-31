@@ -1,10 +1,11 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import RequestsReceived from './RequestsReceived';
 import RequestsSent from './RequestsSent';
 
-import { FaTrashAlt, FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt } from 'react-icons/fa';
 
 import logo from '../../media/black_logo.png';
 
@@ -12,17 +13,17 @@ import './MyRequests.css';
 
 const MyRequests = () => {
     const history = useHistory();
-    const { id } = useParams();
+    const user = useSelector((state) => state.session.user);
 
     const handleChange = (e) => {
         if (e.target.value === 'courts') {
-            history.push(`/players/${id}/courts`);
+            history.push(`/players/${user.id}/courts`);
         }
         if (e.target.value === 'hits') {
-            history.push(`/players/${id}/hits`);
+            history.push(`/players/${user.id}/hits`);
         }
         if (e.target.value === 'profile') {
-            history.push(`/players/${id}`);
+            history.push(`/players/${user.id}`);
         }
         if (e.target.value === 'home') {
             history.push('/');

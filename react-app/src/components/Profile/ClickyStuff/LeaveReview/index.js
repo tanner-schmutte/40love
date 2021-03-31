@@ -5,7 +5,7 @@ import './LeaveReview.css'
 const LeaveReview = () => {
     return (
         <>
-            <div>Leave Review</div>
+            <div></div>
         </>
     );
 };

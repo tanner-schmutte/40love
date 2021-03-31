@@ -1,0 +1,44 @@
+.reviews-recd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reviews-title {
+    font-family: 'Optima';
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-review {
+    border: 10px solid black;
+    border-radius: 40px;
+    margin: 10px;
+    width: 300px;
+    font-family: 'Optima';
+    font-weight: bold;
+}
+
+.profile-review-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 2rem;
+}
+
+.profile-review-comment {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-review-reviewer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { getPlayerCourts } from '../../services/players';
 import { removeCourt } from '../../services/courts';
@@ -13,6 +14,7 @@ import './MyCourts.css';
 const MyCourts = () => {
     const history = useHistory();
     const { id } = useParams();
+    const user = useSelector((state) => state.session.user);
     const [courts, setCourts] = useState();
 
     const removeCourtHandler = async (e) => {
@@ -30,13 +32,13 @@ const MyCourts = () => {
 
     const handleChange = (e) => {
         if (e.target.value === 'requests') {
-            history.push(`/players/${id}/requests`);
+            history.push(`/players/${user.id}/requests`);
         }
         if (e.target.value === 'hits') {
-            history.push(`/players/${id}/hits`);
+            history.push(`/players/${user.id}/hits`);
         }
         if (e.target.value === 'profile') {
-            history.push(`/players/${id}`);
+            history.push(`/players/${user.id}`);
         }
         if (e.target.value === 'home') {
             history.push('/');

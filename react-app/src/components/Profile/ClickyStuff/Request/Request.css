@@ -27,7 +27,8 @@
 }
 
 .request-hit-form {
-    width: 50%;
+    margin-left: 20px;
+    width: 400px;
     border: 10px solid black;
     border-radius: 10px;
 }

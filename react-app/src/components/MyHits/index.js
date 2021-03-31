@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 
 import { getHitsRequester, getHitsRequestee } from '../../services/players';
@@ -16,6 +17,7 @@ import './MyHits.css';
 const MyHits = () => {
     const history = useHistory();
     const { id } = useParams();
+    const user = useSelector((state) => state.session.user);
     const [hits, setHits] = useState();
 
     useEffect(() => {
@@ -31,13 +33,13 @@ const MyHits = () => {
 
     const handleChange = (e) => {
         if (e.target.value === 'courts') {
-            history.push(`/players/${id}/courts`);
+            history.push(`/players/${user.id}/courts`);
         }
         if (e.target.value === 'requests') {
-            history.push(`/players/${id}/requests`);
+            history.push(`/players/${user.id}/requests`);
         }
         if (e.target.value === 'profile') {
-            history.push(`/players/${id}`);
+            history.push(`/players/${user.id}`);
         }
         if (e.target.value === 'home') {
             history.push('/');

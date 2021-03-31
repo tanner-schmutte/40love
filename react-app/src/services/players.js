@@ -117,3 +117,13 @@ export const getHitsRequestee = async (playerId) => {
 
     return await res.json();
 };
+
+export const getReviews = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/reviews`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};

@@ -1,3 +1,8 @@
+.request-review-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .request {
     margin-bottom: 10px;
 }

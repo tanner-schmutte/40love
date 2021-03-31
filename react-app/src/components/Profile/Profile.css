@@ -5,12 +5,12 @@
 
 .review-list {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .clicky-stuff {
     display: flex;
-    flex-direction: column;
-    margin-left: 10px
+    justify-content: center;
+    align-items: flex-start;
 }

@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
-from app.models import db, Player, Court, Request, Hit
+from app.models import db, Player, Court, Request, Hit, Review
 from app.forms import RequestForm, ReviewForm
 
 
@@ -143,6 +143,14 @@ def get_hits_as_requestee(id):
     hits = Hit.query.filter(Hit.player2_id == id).all()
 
     return jsonify([hit.to_dict() for hit in hits])
+
+
+@player_routes.route('/<int:id>/reviews')
+@login_required
+def get_reviews(id):
+    reviews = Review.query.filter(Review.reviewee_id == id).all()
+
+    return jsonify([review.to_dict() for review in reviews])
 
 
 @player_routes.route('/<int:id>/reviews', methods=['POST'])

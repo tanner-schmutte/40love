@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import { getPlayer } from '../../../services/players';
 
@@ -14,6 +15,8 @@ import './Banner.css';
 const Banner = () => {
     const history = useHistory();
     const { id } = useParams();
+    const user = useSelector((state) => state.session.user);
+
 
     const [player, setPlayer] = useState();
 
@@ -27,13 +30,13 @@ const Banner = () => {
 
     const handleChange = (e) => {
         if (e.target.value === 'courts') {
-            history.push(`/players/${id}/courts`);
+            history.push(`/players/${user.id}/courts`);
         }
         if (e.target.value === 'requests') {
-            history.push(`/players/${id}/requests`);
+            history.push(`/players/${user.id}/requests`);
         }
         if (e.target.value === 'hits') {
-            history.push(`/players/${id}/hits/`);
+            history.push(`/players/${user.id}/hits/`);
         }
         if (e.target.value === 'home') {
             history.push('/');
