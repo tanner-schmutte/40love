@@ -23,6 +23,10 @@ def seed_reviews():
         Review(rating=3, comment="Some of her shots were unreal.", hit_id=10, reviewer_id=17, reviewee_id=19),
         Review(rating=2, comment="His swing needs work.", hit_id=11, reviewer_id=18, reviewee_id=16),
         Review(rating=1, comment="He's a cheater.", hit_id=11, reviewer_id=16, reviewee_id=18),
+        Review(rating=1, comment="Definitely a cheater.", hit_id=11, reviewer_id=7, reviewee_id=18),
+        Review(rating=1, comment="Hooked me on several calls.", hit_id=11, reviewer_id=4, reviewee_id=18),
+        Review(rating=1, comment="This player should be suspended for the horrendous line calls.", hit_id=11, reviewer_id=12, reviewee_id=18),
+
     ]
 
     db.session.add_all(seed)

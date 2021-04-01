@@ -106,7 +106,7 @@ const MyCourts = () => {
                 ))}
             {courts.length === 0 && (
                 <div className="my-court-list">
-                    <div>No courts yet. Add courts via the map.</div>
+                    <div>No courts. Add courts via the map.</div>
                 </div>
             )}
         </>

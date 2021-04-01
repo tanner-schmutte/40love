@@ -4,9 +4,9 @@ from app.models import db, Hit
 def seed_hits():
 
     seed = [
-        Hit(date='2021-04-16 13:30', player1_id=13, player2_id=1, court_id=6),
-        Hit(date='2021-04-07 09:30', player1_id=7, player2_id=1, court_id=10),
-        Hit(date='2021-04-11 15:00', player1_id=1, player2_id=6, court_id=18),
+        Hit(date='2021-04-07 09:30', player1_id=18, player2_id=1, court_id=10),
+        Hit(date='2021-04-11 15:00', player1_id=1, player2_id=7, court_id=18),
+        Hit(date='2021-04-16 13:30', player1_id=2, player2_id=1, court_id=6),
         Hit(date='2021-05-03 12:00', player1_id=2, player2_id=3, court_id=1),
         Hit(date='2021-05-03 12:00', player1_id=5, player2_id=15, court_id=3),
         Hit(date='2021-05-03 12:00', player1_id=10, player2_id=11, court_id=20),

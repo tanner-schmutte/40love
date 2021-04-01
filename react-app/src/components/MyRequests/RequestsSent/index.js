@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 
 import { getRequestsSent } from '../../../services/players';
 
@@ -29,9 +30,13 @@ const RequestsSent = () => {
                             <Username requestee={request.requestee} />
                             <Court courtId={request.court} />
                             <div className="my-reqs-sent-date">
-                                {request.date}
+                                {moment(request.date).format(
+                                    'ddd, MMM Do @ HH:mm a'
+                                )}
                             </div>
-                            <div className="my-reqs-sent-status">Status: pending</div>
+                            <div className="my-reqs-sent-status">
+                                Status: pending
+                            </div>
                         </div>
                     ))}
             </div>
