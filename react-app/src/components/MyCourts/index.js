@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { getPlayerCourts } from '../../services/players';
+import { getPlayerCourts, addAllCourts } from '../../services/players';
 import { removeCourt } from '../../services/courts';
 
 import { FaTrashAlt, FaUserAlt } from 'react-icons/fa';
@@ -46,6 +46,13 @@ const MyCourts = () => {
         if (e.target.value === 'back') {
             history.goBack();
         }
+        if (e.target.value === 'add-all') {
+            (async () => {
+                await addAllCourts(user.id);
+                const fetchedCourts = await getPlayerCourts(id);
+                setCourts(fetchedCourts);
+            })();
+        }
     };
 
     return courts ? (
@@ -82,6 +89,9 @@ const MyCourts = () => {
                         </option>
                         <option value="home" key="home">
                             Home
+                        </option>
+                        <option value="add-all" key="add-all">
+                            Add All Courts
                         </option>
                     </select>
                 </div>

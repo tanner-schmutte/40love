@@ -30,6 +30,7 @@ def seed_reviews():
         Review(rating=1, comment="Hooked me on several calls.", hit_id=11, reviewer_id=4, reviewee_id=18),
         Review(rating=1, comment="This player should be suspended for the horrendous line calls.", hit_id=11, reviewer_id=12, reviewee_id=18),
         Review(rating=1, comment="This player should be suspended for the horrendous line calls.", hit_id=11, reviewer_id=7, reviewee_id=6),
+        Review(rating=3, comment="He's got a lot of potential", hit_id=11, reviewer_id=7, reviewee_id=14),
 
     ]
 

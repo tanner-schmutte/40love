@@ -26,6 +26,19 @@ def get_player(id):
         return ({"error": "error"})
 
 
+@player_routes.route('/<int:id>/add-all-courts', methods=['POST'])
+def add_all_courts(id):
+    player = Player.query.get(id)
+    courts = Court.query.all()
+
+    for court in courts:
+        player.courts.append(court)
+
+    db.session.commit()
+
+    return {'success': True}
+
+
 @player_routes.route('/<int:id>/courts')
 @login_required
 def get_player_courts(id):

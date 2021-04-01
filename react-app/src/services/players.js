@@ -18,6 +18,17 @@ export const getPlayerCourts = async (playerId) => {
     return await res.json();
 };
 
+export const addAllCourts = async (playerId) => {
+    const res = await fetch(`/api/players/${playerId}/add-all-courts`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return await res.json();
+};
+
 export const checkForHitRequest = async (playerId) => {
     const res = await fetch(`/api/players/${playerId}/requests`, {
         headers: {
