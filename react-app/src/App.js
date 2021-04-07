@@ -26,11 +26,6 @@ function App() {
         <BrowserRouter>
             {/* <NavBar setAuthenticated={setAuthenticated} /> */}
 
-            {/* <Home
-                setAuthenticated={setAuthenticated}
-                authenticated={authenticated}
-            /> */}
-
             <Switch>
                 <Route path="/" exact={true}>
                     <Home />
