@@ -4,10 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
-// import UsersList from './components/UsersList';
-// import User from './components/User';
 import { authenticate } from './store/session';
+
 import Home from './components/Home';
 import Court from './components/Court';
 import Profile from './components/Profile';
@@ -24,8 +22,6 @@ function App() {
 
     return (
         <BrowserRouter>
-            {/* <NavBar setAuthenticated={setAuthenticated} /> */}
-
             <Switch>
                 <Route path="/" exact={true}>
                     <Home />
@@ -51,28 +47,6 @@ function App() {
                 <Route path="/players/:id/requests" exact={true}>
                     <MyRequests />
                 </Route>
-
-                {/* <ProtectedRoute
-                    path="/users"
-                    exact={true}
-                    authenticated={authenticated}
-                >
-                    <UsersList />
-                </ProtectedRoute>
-                <ProtectedRoute
-                    path="/users/:userId"
-                    exact={true}
-                    authenticated={authenticated}
-                >
-                    <User />
-                </ProtectedRoute>
-                <ProtectedRoute
-                    path="/"
-                    exact={true}
-                    authenticated={authenticated}
-                >
-                    <h1>My Home Page</h1>
-                </ProtectedRoute> */}
             </Switch>
         </BrowserRouter>
     );
