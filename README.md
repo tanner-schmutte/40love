@@ -76,8 +76,7 @@
 | :-------------------------- | :-------: | ------------------------------------: |
 | /api/courts                 | GET       |                       Gets all courts |
 | /api/courts/:id             | GET       |                     Gets single court |
-| /api/courts/:id             | POST      |                   Create single court |
-| /api/courts/:id/players     | GET       |         Get players at specific court |
+| /api/courts/:id/players     | GET       | Check if current user has added court |
 | /api/courts/:id/players     | POST      |          Add player to specific court |
 | /api/courts/:id/hits        | GET       |            Get hits at specific court |
 | /api/courts/:id/hits        | POST      |          Create hit at specific court |
