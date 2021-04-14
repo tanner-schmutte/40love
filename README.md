@@ -43,7 +43,7 @@
 
 #### Future Features
 
--   Messaging
+-   Messaging (sockit.io)
 
 ## Database Schema
 
