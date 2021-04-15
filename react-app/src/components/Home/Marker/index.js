@@ -32,7 +32,6 @@ export default function Marker({ id, name }) {
         auto: true,
         overflowContainer: false,
         onOutsideClick: () => setOpen(false),
-        // container: 'infoboxlayer',
     });
     return (
         <>
