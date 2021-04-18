@@ -20,6 +20,7 @@ export const courtCheck = (courtId) => async (dispatch) => {
 
 // TODO: new function here to setDefaultCourt()
 // Let's do it
+// For real
 
 export const chooseCourt = (courtId) => async (dispatch) => {
     const res = await fetch(`/api/courts/${courtId}`, {
