@@ -22,6 +22,7 @@ export const courtCheck = (courtId) => async (dispatch) => {
 // Let's do it
 // For real
 // K
+// Actually
 
 export const chooseCourt = (courtId) => async (dispatch) => {
     const res = await fetch(`/api/courts/${courtId}`, {
