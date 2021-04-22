@@ -17,13 +17,7 @@ export const courtCheck = (courtId) => async (dispatch) => {
     dispatch(setCourt(check.added));
 };
 
-
 // TODO: new function here to setDefaultCourt()
-// Let's do it
-// For real
-// K
-// Actually
-// Once mo' 'gin
 
 export const chooseCourt = (courtId) => async (dispatch) => {
     const res = await fetch(`/api/courts/${courtId}`, {
