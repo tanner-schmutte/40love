@@ -26,6 +26,7 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
 
     except Exception as e:
         # This is a catch all exception, edit this part to fit your needs.
+        # k
         print("Something Happened: ", e)
         return e
 
