@@ -3,7 +3,6 @@ import botocore
 from .config import Config
 
 # TODO: this file
-# esketit
 
 
 s3 = boto3.client(
