@@ -2,7 +2,7 @@ import boto3
 import botocore
 from .config import Config
 
-# TODO: this file and others
+# TODO: lets get it
 
 s3 = boto3.client(
    "s3",
