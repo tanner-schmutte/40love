@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/tannman/.pyenv/shims/python",
+    "python.pythonPath": "/usr/local/bin/python3",
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
     "python.linting.pycodestyleEnabled": true

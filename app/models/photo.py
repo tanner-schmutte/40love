@@ -14,5 +14,5 @@ class Photo(db.Model):
         return {
             "id": self.id,
             "player": self.user_id,
-            "file": self.file,
+            "url": self.url,
         }
