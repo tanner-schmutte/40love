@@ -43,7 +43,7 @@
 
 #### Future Features
 
--   Messaging (sockit.io)
+-   Messaging (socket.io)
 
 ## Database Schema
 
