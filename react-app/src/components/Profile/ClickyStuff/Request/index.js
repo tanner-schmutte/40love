@@ -18,7 +18,7 @@ import './Request.css';
 
 const Request = () => {
     const { id } = useParams();
-    
+
     const [hitRequested, setHitRequested] = useState();
     const [requestClicked, setRequestClicked] = useState(false);
     const [date, setDate] = useState(new Date());
@@ -57,7 +57,11 @@ const Request = () => {
     const onSubmit = async (e) => {
         if (
             window.confirm(
-                `Do you want to request a hit with ${player.username} on ${moment(date).format('MM-DD-YYYY HH:mm')} at ${court.name} Tennis Courts?`
+                `Do you want to request a hit with ${
+                    player.username
+                } on ${moment(date).format('MM-DD-YYYY HH:mm')} at ${
+                    court.name
+                } Tennis Courts?`
             )
         ) {
             await requestHit(

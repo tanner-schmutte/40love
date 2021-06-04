@@ -5,10 +5,10 @@ class Photo(db.Model):
     __tablename__ = "photos"
 
     id = db.Column(db.Integer, primary_key=True)
-
-    user_id = db.Column(db.Integer, db.ForeignKey("players.id"), nullable=False)
-
+    player_id = db.Column(db.Integer, db.ForeignKey("players.id"), nullable=False)
     url = db.Column(db.String, nullable=False)
+
+    player = db.relationship("Player")
 
     def to_dict(self):
         return {

@@ -23,6 +23,8 @@ class Player(db.Model, UserMixin):
     reviewer = db.relationship("Review", foreign_keys="Review.reviewer_id")
     reviewee = db.relationship("Review", foreign_keys="Review.reviewee_id")
 
+    photo = db.relationship("Photo")
+
     @property
     def password(self):
         return self.hashed_password

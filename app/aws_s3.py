@@ -22,11 +22,11 @@ def get_unique_filename(filename):
     return f"{unique_filename}.{ext}"
 
 
-def upload_file_to_s3(file, bucket_name, acl="public-read"):
+def upload_file_to_s3(file, acl="public-read"):
     try:
         s3.upload_fileobj(
             file,
-            bucket_name,
+            Config.S3_BUCKET,
             file.filename,
             ExtraArgs={
                 "ACL": acl,
