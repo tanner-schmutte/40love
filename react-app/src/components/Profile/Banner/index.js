@@ -27,6 +27,8 @@ const Banner = () => {
         setIsOpen(!isOpen);
     };
 
+    // more logic here
+
     const updatePhoto = (e) => {
         const file = e.target.files[0];
         setImage(file);
