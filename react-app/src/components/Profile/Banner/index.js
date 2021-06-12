@@ -28,6 +28,7 @@ const Banner = () => {
     };
 
     // more logic here
+    // right here
 
     const updatePhoto = (e) => {
         const file = e.target.files[0];
