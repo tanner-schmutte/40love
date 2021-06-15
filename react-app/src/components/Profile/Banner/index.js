@@ -27,7 +27,7 @@ const Banner = () => {
         setIsOpen(!isOpen);
     };
 
-    // more logic here
+    // TODO: add file upload
 
     const updatePhoto = (e) => {
         const file = e.target.files[0];
