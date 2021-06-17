@@ -22,7 +22,6 @@ const MapContainer = styled.div`
 `;
 
 export default function Map() {
-    
     const [courts, setCourts] = useState();
 
     useEffect(() => {

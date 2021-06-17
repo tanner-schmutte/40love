@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -14,20 +14,6 @@ import MyHits from './components/MyHits';
 import MyRequests from './components/MyRequests';
 
 function App() {
-    async function getUserLocation() {
-        const res = await fetch(
-            'https://api.ipdata.co/?api-key=key'
-        );
-
-        const json = await res.json();
-
-        const { latitude, longitude } = json
-
-        console.log(latitude, longitude)
-    }
-
-    getUserLocation()
-
     const dispatch = useDispatch();
 
     useEffect(() => {
