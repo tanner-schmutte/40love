@@ -38,7 +38,7 @@ export default function Map() {
             <MapContainer>
                 <GoogleMapReact
                     bootstrapURLKeys={{
-                        key: 'AIzaSyADUiyN1EtAgFI5DKE6WyiQqPpUuI9Tya4',
+                        key: 'key',
                     }}
                     center={{ lat: 37.7655, lng: -122.4381 }}
                     defaultZoom={13}

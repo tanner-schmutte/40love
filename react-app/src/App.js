@@ -14,6 +14,20 @@ import MyHits from './components/MyHits';
 import MyRequests from './components/MyRequests';
 
 function App() {
+    async function getUserLocation() {
+        const res = await fetch(
+            'https://api.ipdata.co/?api-key=key'
+        );
+
+        const json = await res.json();
+
+        const { latitude, longitude } = json
+
+        console.log(latitude, longitude)
+    }
+
+    getUserLocation()
+
     const dispatch = useDispatch();
 
     useEffect(() => {
